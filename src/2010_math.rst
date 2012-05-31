@@ -1,0 +1,130 @@
+Math With Python
+################
+
+:date: 2010-10-18
+:category: Code
+:tags: python, beginner, math
+
+If this is your first time using Python in Windows, you will have \
+to download it from python.org. Every operating system includes a \
+terminal, which we will be using to practice and test. Google \
+"How to open terminal" and your operating system name to find \
+specific information about opening your terminal. You will also need \
+either VIM, WING, Eclipse, or another editor to save and run your \
+programs, though we do not need to use it for this tutorial. This \
+article will focus on math capabilities within Python, either \
+performing calculations as a common calculator or within logic \
+commands. So open your terminal and play with me.
+
+I start my code with telling my terminal that I would be working \
+in python. [gypsychemist@inspidell ~]$ is my shell prompt, "python" \
+is what I typed, and the next three lines are showing that python \
+is installed and open for me to use.
+
+.. code-block:: python
+
+	[gypsychemist@inspidell ~]$ python
+	Python 2.6.4 (r264:75706, Jun  4 2010, 18:20:16) 
+	[GCC 4.4.4 20100503 (Red Hat 4.4.4-2)] on linux2
+	Type "help", "copyright", "credits" or "license" for more
+	information.
+	>>> 3 + 2
+	5
+	>>> 3 * 2 
+	6
+	>>> 6 / 2
+	3
+	>>> 3 - 2
+	1
+	>>> 3 * (3 - 1)
+	6 
+	>>> pi = 3.14
+	>>> 3 * pi
+	9.4199999999999999
+	>>> abs(2 - 3)
+	1
+	>>> pow(3, 2)
+	9
+	>>> 3**2
+	9 
+
+
+Basic math commands are shown above. '+' is for addition, '-' for \
+subtraction. '*' for multiplication, and '/' for division. The basic \
+math rules regarding parenthesis and order of operations are \
+followed correctly. You can also store numbers as words or letters \
+to perform math equations on, such as the example with pi. In \
+Python, '=' is used to assign and does not imply equivalency. The \
+absolute value function and two alternative ways to find a number \
+with an exponent (also known as power) are shown. 
+
+A useful tool in python is the math library. To see the functions \
+you can use within math, type 'import math' and 'dir(math)' on the \
+next line. You just told the terminal you are opening the library \
+and viewing the directory. The terminal will show you the commands \
+including different trigonometric functions, advanced algebra, and \
+rounding options. To learn more about a command (such as floor \
+rounding), you can type 'help(math.floor)'. Press 'q' to exit help. 
+
+.. code-block:: python
+
+	>>> import math
+	>>> dir(math)
+	['__doc__', '__file__', '__name__', '__package__', 'acos', 'acosh', 
+	'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign','cos', 
+	'cosh', 'degrees', 'e', 'exp', 'fabs', 'factorial', 'floor', 'fmod', 
+	'frexp', 'fsum', 'hypot', 'isinf', 'isnan', 'ldexp', 'log', 'log10', 
+	'log1p', 'modf', 'pi', 'pow', 'radians', 'sin', 'sinh', 'sqrt', 
+	'tan', 'tanh', 'trunc']
+	>>> help(math.floor)
+	>>> math.floor(4.5)
+	4.0
+
+You can also test to determine if one number is divisible by \
+another, such as when you want to execute commands on only the even \
+indexes in a list. To determine if 3 is evenly divisible by 2, type \
+'3 %2'. Python returns '1' because there is a remainder of 1 when \
+you divide 3 by 2. If 0 is a result, then numbers are evenly \
+divisible. 
+
+.. code-block:: python
+	
+	>>> 3 % 2
+	1
+	>>> 3 % 3
+	0
+
+If given a list of numbers and you want to perform math functions \
+such as adding the numbers together, you can use a for loop. Follow \
+the below example:
+
+.. code-block:: python
+	
+	>>> list=[2, 3, 6, 7, 4, 6]
+	>>> sum=0
+	>>> for x in list:
+	...   sum += x
+	... 
+	>>> sum
+	28
+
+In Python, spacing of indentions and capitalization are very \
+important. After any statement ending with ':' , indent by a \
+consistent amount (two spaces, four spaces, tab, will all work, but \
+four is the standard).'sum += x' is the same as 'sum = sum + x'. 'x' \
+is the value at the index as it goes through the list. So this code \
+just said 0 + 2 + 3 + 6 + 7 + 4 + 6 = 28. Now that you understand \
+how to do it with a basic for loop, the quicker way is to use the \
+built in sum function. Because I used the variable 'sum', already, \
+I need to first reinstate sum to its built in function.
+
+.. code-block:: python
+	
+	>>> from __builtin__ import sum
+	>>> sum(list)
+	28
+
+Using built in functions as variables should be avoided. As you \
+learn more Python, you will learn safe and understandable variables \
+to use in your code. For more information on numbers and math, you \
+can visit http://docs.python.org/library/numeric.html
