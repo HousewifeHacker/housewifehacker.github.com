@@ -1,0 +1,59 @@
+Map Function in Python
+######################
+
+:date: 2010-10-20
+:category: Code
+:tags: python, modules
+
+
+Today I discovered the map function in Python. Map causes some simple for \
+loops to be verbose and unnecessary. Let's look at how to change a list of \
+integers to a list of strings. First we'll use a for loop:
+
+.. code-block:: python
+
+	>>> list = [1, 2, 3, 4, 5]
+	>>> index = 0
+	>>> for x in list:
+	...   list[index] = str(list[index])
+	...   index += 1
+	... 
+	>>> print list
+	['1', '2', '3', '4', '5']
+
+
+Now we'll use the map function and we'll define our 1-5 list using the range \
+function
+
+.. code-block:: python
+	
+	>>> list1 = range(1, 6)
+	>>> map(str, list1)        # performs str to each index of list1
+	['1', '2', '3', '4', '5'] 
+
+
+You can also make your list within the map function, such as splitting a \
+string into a list. The following example shows how you can define a method \
+using else, elif (else if), and if statements, then run your method to a \
+single string with the map function, resulting in a list with the method \
+performed to each index.
+
+.. code-block:: python
+
+	>>> def pluralize(word):
+	...   if word[-1] == 'y':
+	...     return word[:len(word) - 1] + 'ies'      # replaces y with ies
+	...   elif word[-1] == 's':
+	...     return word + 'es'
+	...   else:
+	...     return word + 's'
+	... 
+	>>> map( pluralize, "The sexy waitress brought me a beer".split()) 
+	['Thes', 'sexies', 'waitresses', 'broughts', 'mes', 'as', 'beers']
+	>>># my husband chose the sentence
+
+
+I simplified my method to not account for every scenario put into it. Although \
+this specific example does not produce correct English, the map function \
+correctly split the string on the whitespace and carried out the method on \
+each index of the list.

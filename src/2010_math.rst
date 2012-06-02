@@ -3,7 +3,7 @@ Math With Python
 
 :date: 2010-10-18
 :category: Code
-:tags: python, beginner, math
+:tags: python, beginner, math, modules
 
 If this is your first time using Python in Windows, you will have \
 to download it from python.org. Every operating system includes a \
