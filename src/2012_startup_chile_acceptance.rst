@@ -3,8 +3,7 @@ We Got In!
 
 :date: 2012-05-25
 :category: Startup
-:tags: Chile
-:status: draft
+:tags: Chile, Investment, EventRay
 
 Today, about two months after the round four applications for StartUp \
 Chile (www.startupchile.org) closed, the accepted 100 teams were announced. \
@@ -21,9 +20,8 @@ entrepreneurship course at local universities and has continued to teach and \
 mentor beyond the duration of his program requirements. We will probably earn \
 our credit by teaching programming and putting on events with our event \
 planning software. Most of the StartUp Chile events are currently using \
-Welcu, which is like Eventbrite but one third the quality. They're fine for \
-night club events or a small pool party, but that's about it. Their software \
-is very limited, a little ugly, and pretty plagued with programming bugs. \
+Welcu. We believe we can replace them with our superior knowledge of the \
+industry, our higher standards of quality, and our exceptional technology. \ 
 Their goal is to be acquired, and it shows. We aim to manage the entire event \
 planning process, from communicating with clients, contracting vendors, \
 organizing speakers, collecting registrations, and analyzing reports. We LOVE \
