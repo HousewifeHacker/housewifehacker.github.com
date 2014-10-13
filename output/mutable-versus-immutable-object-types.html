@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Mutable versus Immutable Object Types</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="A Pelican Blog Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">A Pelican Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/code.html">Code</a></li>
+                    <li><a href="/category/projects.html">Projects</a></li>
+                    <li><a href="/category/reading-list.html">Reading List</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/mutable-versus-immutable-object-types.html" rel="bookmark"
+           title="Permalink to Mutable versus Immutable Object Types">Mutable versus Immutable Object Types</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-05-07T00:00:00">
+                Published: Mon 07 May 2012
+        </abbr>
+
+<p>In <a href="/category/code.html">Code</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/lists.html">lists</a> <a href="/tag/data-structures.html">data structures</a> <a href="/tag/mutable-and-immutable.html">mutable and immutable</a> </p>
+</footer><!-- /.post-info -->      <p>Strings, lists, tuples, integers, float, dictionaries, and sets are all types of python objects with different properties and uses. When using an object in a program or in your terminal, your session assigns an Id to access the computer's memory. The Id will be unique each session and on each computer, so the actual number returned by the id() function is irrelevant. What is relevant is when that number changes. If the id changes as the value changes, the computer had to assign a new id to the immutable object. If the id stays the same, then it is a mutable object, because the value associated with the id can be changed without changing the id. Integers are immutable:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>        <span class="c"># direct the reference of y to be the reference of x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># x and y point to same reference</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c"># change the value of x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># the id of x changed when the value changed</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>        <span class="c"># the value of y did not change with x</span>
+<span class="bp">False</span>
+</pre></div>
+<p>I'm the type of learner that skims through vocabulary lessons to get to the action, but understanding this next part will save you some headaches when trying to manipulate mutable objects. Look what happens when I try to do the same thing I just did to the integers, but now to a list:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>        <span class="c"># direct the reference of y to be the reference of x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># x and y point to the same reference</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>        <span class="c">#change x from [5] to [5, 4]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># x and y still point to the same reference</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>        <span class="c"># y changed with x</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>        <span class="c"># will be a different number for everyone</span>
+<span class="il">3075316972L</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c"># z is now [5, 5, 3]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>        <span class="c"># id is constant, the list is mutable</span>
+<span class="il">3075316972L</span>
+</pre></div>
+<p>I stumbled upon this while using random.shuffle on a list, while wishing to keep a copy of the list in it's original form. As you can see by assigning x equal to y, the lists changed together. That was an ineffective way to make a copy because all I did was assign the same Id two different names. Try determining if the other object types are mutable or immutable. I don't want to spoil the fun for you.</p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
