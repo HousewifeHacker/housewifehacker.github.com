@@ -12,5 +12,4 @@ Extends Backbone's model parsing to include relations
 Custom Backbone composite view adds and removes subviews and their listeners
 Technologies: Rails, Backbone.js, SQL, Jbuilder, Capybara, Heroku, jQuery, AJAX, Chart.js, Bootstrap, HTML, CSS, Kaminari
 
-'PollTheWorld.website
-<http://www.polltheworld.website/>'_
+http://www.PollTheWorld.website
