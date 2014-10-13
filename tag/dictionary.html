@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>housewife_hacker - dictionary</title>
-        <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
-        <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
+        <title>A Pelican Blog - dictionary</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="A Pelican Blog Atom Feed" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -13,26 +13,24 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
+                <h1><a href="/">A Pelican Blog </a></h1>
                 <nav><ul>
-                    <li><a href="http://housewifehacker.com/category/code.html">Code</a></li>
-                    <li><a href="http://housewifehacker.com/category/reading-list.html">Reading List</a></li>
+                    <li><a href="/category/code.html">Code</a></li>
+                    <li><a href="/category/projects.html">Projects</a></li>
+                    <li><a href="/category/reading-list.html">Reading List</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://housewifehacker.com/easy-anagram-dictionaries-practice.html">Easy Anagram Dictionaries Practice</a></h1>
+                    <h1 class="entry-title"><a href="/easy-anagram-dictionaries-practice.html">Easy Anagram Dictionaries Practice</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2012-05-15T00:00:00">
-                Published: May 2012
+                Published: Tue 15 May 2012
         </abbr>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
-        </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
-<p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/dictionary.html">dictionary</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
+<p>In <a href="/category/code.html">Code</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/dictionary.html">dictionary</a> <a href="/tag/data-structures.html">data structures</a> <a href="/tag/mutable-and-immutable.html">mutable and immutable</a> <a href="/tag/beginner.html">beginner</a> </p>
 </footer><!-- /.post-info --><p>I do not use dictionaries very often. Friday, I was without internet all day, so I took the opportunity to play with dir() and help() to discover some dictionary properties. My short-lived obsession with Draw Something on the iPhone has gotten me interested in anagrams (kicked the habit by reading programming books). I believe using dictionaries is the fastest and most accurate way to determine if two words are anagrams of each other, at least without importing any other modules.</p>
 <p>A dictionary is an unordered set of key: value pairs. Keys must be an immutable type. Values can be anything. Being unordered causes some interesting properties for working with dictionaries, different from any other python data structure. Instead of being indexed by numbers, dictionaries are indexed by keys. Because they are indexed by keys, each key is unique within it's dictionary. If two dictionaries with the same keys are added to each other, the values of the same data type combine. This is convenient for our anagram activity. But first, some dictionary review.</p>
 <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c"># creates an empty dictionary</span>
@@ -99,25 +97,13 @@
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
                 </article>
-<p class="paginator">
-    Page 1 / 1
-</p>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
-                            <li><a href="http://python.org">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-                            <li><a href="http://twitter.com/housewifehacker">Follow Me On Twitter</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
