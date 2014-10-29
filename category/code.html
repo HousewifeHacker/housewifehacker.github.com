@@ -23,7 +23,82 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://housewifehacker.com/bcrypt-with-rails.html">Bcrypt with Rails</a></h1>
+                    <h1 class="entry-title"><a href="http://housewifehacker.com/pythons-dictionary-get.html">Python's Dictionary Get</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-10-16T00:00:00">
+                Published: October 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
+        </address>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+
+</footer><!-- /.post-info --><p>In a Python dictionary, one way to return the value for a specific key is a_dictionary[key]. Another way is to use the get method: a_dictionary.get(key). The difference is when the key is not in the dictionary. The bracket method returns an error, but the get method is silent. Get is a method that not only returns the value at a key, but also sets a default return value. When not specified, the default is None, which is why it was silent. If you wrap a_dictionary.get(&quot;absent_key&quot;) in a print call, it prints None. An empty list or 0 are the default values I've used most.</p>
+<p>A common exercise for a dictionary is an anagram detector. I've seen this problem so many times, but only recently discovered the get method to make it cleaner and more efficient. First, the solution from earlier times. This was from a blog post of mine in 2012:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the first word? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the second? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">count1</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">count2</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">count1</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="n">count1</span><span class="p">)</span>
+    <span class="n">count2</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word2</span><span class="p">,</span> <span class="n">count2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">count1</span> <span class="o">==</span> <span class="n">count2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+<p>Actually, Python 3 no longer includes: a_dictionary.has_key(&quot;example&quot;). A suggested alternative mentioned in Dive Into Python 3 is: &quot;example&quot; in a_dictionary. That's great if you want a boolean returned, but we want to modify the value regardless. If the key exists, add 1. If it doesn't exist, add 1 to 0. We need a default value of 0 if the key does not already exist, which is what the get method does for us. Now just a small change to the helper get_dict function from 2012 version:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+<p>Passing in an empty dictionary is kind of silly. So one more change:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the first word? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the second? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">count1</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
+    <span class="n">count2</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">count1</span> <span class="o">==</span> <span class="n">count2</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://housewifehacker.com/bcrypt-with-rails.html" rel="bookmark"
+                           title="Permalink to Bcrypt with Rails">Bcrypt with Rails</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2014-10-13T00:00:00">
                 Published: October 2014
@@ -34,51 +109,10 @@
         </address>
 <p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
 
-</footer><!-- /.post-info --><p>Bcrypt is an algorithm for hashing passwords that can be implemented in many programming languages. When a user signs up or logs in, the password they entered is sent to the server. SSL should be used for this stage, but that is separate from bcrypt. Bcrypt's job is to protect the password when it gets in the database. It does its job pretty well. Despite being first introduced in 1999 and being extremely popular, it has still not been compromised.</p>
-<p>Each new password sent to the database is salted and ciphered before being stored as a hash. In our database, the password hash is stored as password_digest. To verify a password on login, the password attempt is also ciphered to check if the hashes come from the same string, the actual password. A password hash is never unciphered. If someone does get the database, they could only try to guess each password, but bcrypt would actually slow down the more they try.</p>
-<p>Many auth libraries do use bcrypt, but the bcrypt gem makes it simple enough to roll our own auth in Rails. First, our Users table needs to have a password digest column.</p>
-<div class="highlight"><pre>rails g model user username password_digest
-rake db:migrate
-</pre></div>
-<p>We need to add the bcrypt gem in our Gemfile. It is probably in your Gemfile already, but commented out. If so, you can just uncomment it. Don't forget bundle install after the change. This gem gives us methods we will use in our user model.</p>
-<div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;bcrypt&#39;</span>
-</pre></div>
-<p>Our User model needs a method to cipher the password when it is created. It also needs a method to cipher password attempts and return a boolean for if it is a match.</p>
-<div class="highlight"><pre><span class="c1"># app/models/user.rb</span>
-<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
-
-  <span class="k">def</span> <span class="nf">password</span><span class="o">=</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-    <span class="nb">self</span><span class="o">.</span><span class="n">password_digest</span> <span class="o">=</span> <span class="ss">BCrypt</span><span class="p">:</span><span class="ss">:Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-  <span class="k">end</span>
-
-  <span class="k">def</span> <span class="nf">is_password?</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-    <span class="ss">BCrypt</span><span class="p">:</span><span class="ss">:Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">password_digest</span><span class="p">)</span> <span class="o">==</span> <span class="n">password</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-<p>Now in our rails console, create a user. We can view it's password digest, and use the is_password? method. All bcrypt password digests start with &quot;$2a$&quot; or &quot;2y&quot;.</p>
-<div class="highlight"><pre>irb<span class="o">(</span>main<span class="o">)</span>:001:0&gt; <span class="nv">u</span> <span class="o">=</span> User.new<span class="o">({</span>username: <span class="s2">&quot;jessie&quot;</span>, password: <span class="s2">&quot;jessiejessie&quot;</span><span class="o">})</span>
-<span class="o">=</span>&gt; <span class="c">#&lt;User id: nil, username: &quot;jessie&quot;, password_digest: &quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT...&quot;, created_at: nil, updated_at: nil&gt;</span>
-irb<span class="o">(</span>main<span class="o">)</span>:002:0&gt; u.save
-<span class="o">(</span>0.3ms<span class="o">)</span>  begin transaction
-Binary data inserted <span class="k">for</span> <span class="sb">`</span>string<span class="sb">`</span> <span class="nb">type </span>on column <span class="sb">`</span>password_digest<span class="sb">`</span>
-SQL <span class="o">(</span>0.4ms<span class="o">)</span>  INSERT INTO <span class="s2">&quot;users&quot;</span> <span class="o">(</span><span class="s2">&quot;created_at&quot;</span>, <span class="s2">&quot;password_digest&quot;</span>, <span class="s2">&quot;updated_at&quot;</span>, <span class="s2">&quot;username&quot;</span><span class="o">)</span> VALUES <span class="o">(</span>?, ?, ?, ?<span class="o">)</span>  <span class="o">[[</span><span class="s2">&quot;created_at&quot;</span>, <span class="s2">&quot;2014-10-14 00:41:45.144329&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;password_digest&quot;</span>, <span class="s2">&quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT6E.33WchK6&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;updated_at&quot;</span>, <span class="s2">&quot;2014-10-14 00:41:45.144329&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;username&quot;</span>, <span class="s2">&quot;jessie&quot;</span><span class="o">]]</span>
-<span class="o">(</span>19.5ms<span class="o">)</span>  commit <span class="nv">transaction</span>
-<span class="o">=</span>&gt; <span class="nb">true</span>
-irb<span class="o">(</span>main<span class="o">)</span>:003:0&gt; <span class="nv">u</span>
-<span class="o">=</span>&gt; <span class="c">#&lt;User id: 1, username: &quot;jessie&quot;, password_digest: &quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT...&quot;, created_at: &quot;2014-10-14 00:41:45&quot;, updated_at: &quot;2014-10-14 00:41:45&quot;&gt;</span>
-irb<span class="o">(</span>main<span class="o">)</span>:004:0&gt; u.is_password?<span class="o">(</span><span class="s2">&quot;jessiejessie&quot;</span><span class="o">)</span>
-<span class="o">=</span>&gt; <span class="nb">true</span>
-irb<span class="o">(</span>main<span class="o">)</span>:005:0&gt; u.is_password?<span class="o">(</span><span class="s2">&quot;jessie&quot;</span><span class="o">)</span>
-<span class="o">=</span>&gt; <span class="nb">false</span>
-</pre></div>
-<p>That's it, in it's simplest form of course. You'd most likely want a controller and view with a form on an actual project. A more robust auth would also include session tokens stored in the user table and in the client's cookies, which would be compared to each other and reset for logging in and logging out.</p>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Bcrypt is an algorithm for hashing passwords that can be implemented in many programming languages. When a user signs up or logs in, the password they entered is sent to the server. SSL should be used for this stage, but that is separate from bcrypt. Bcrypt's job is to ...</p>
+                <a class="readmore" href="http://housewifehacker.com/bcrypt-with-rails.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -195,30 +229,6 @@ irb<span class="o">(</span>main<span class="o">)</span>:005:0&gt; u.is_password?
 <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
 <span class="s">&#39;0.3 ...</span></pre></div>
                 <a class="readmore" href="http://housewifehacker.com/decimal-to-change-number-precision.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://housewifehacker.com/map-function-in-python.html" rel="bookmark"
-                           title="Permalink to Map Function in Python">Map Function in Python</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2010-10-20T00:00:00">
-                Published: October 2010
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
-        </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
-<p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/modules.html">modules</a> </p>
-</footer><!-- /.post-info -->                <p>Today I discovered the map function in Python. Map causes some simple for loops to be verbose and unnecessary. Let's look at how to change a list of integers to a list of strings. First we'll use a for loop:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0 ...</span></pre></div>
-                <a class="readmore" href="http://housewifehacker.com/map-function-in-python.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

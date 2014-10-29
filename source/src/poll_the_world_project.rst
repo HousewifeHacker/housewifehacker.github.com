@@ -12,4 +12,7 @@ PollTheWorld
 - Custom Backbone composite view adds and removes subviews and their listeners
 - Technologies: Rails, Backbone.js, SQL, Jbuilder, Capybara, Heroku, jQuery, AJAX, Chart.js, Bootstrap, HTML, CSS, Kaminari
 
-http://www.PollTheWorld.website
+`Live
+<http://www.polltheworld.website/>`_
+`Github
+<http://www.github.com/housewifehacker/polltheworld/>`_
