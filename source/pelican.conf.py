@@ -7,13 +7,15 @@ SITEURL = 'http://housewifehacker.com'
 TIMEZONE = 'America/Santiago'
 DEFAULT_DATE_FORMAT = '%B %Y'
 DEFAULT_CATEGORY = 'Code'
-DEFAULT_LANG='en'
+DEFAULT_LANG = 'en'
+GOOGLE_ANALYTICS = 'UA-3721-0283'
+GITHUB_URL = 'http://github.com/housewifehacker'
+TWITTER_USERNAME = 'housewifehacker'
 
 # Blogroll
 LINKS =  (
     ('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
     ('Python.org', 'http://python.org'),
-    ('Jinja2', 'http://jinja.pocoo.org'),
          )
 
 # Social widget
