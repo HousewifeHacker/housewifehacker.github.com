@@ -1,5 +1,5 @@
 Sprite Viewer
-#############
+##############
 
 :category: Projects
 :date: 2015-08-31
