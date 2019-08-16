@@ -5,15 +5,11 @@
         <title>housewife_hacker - data structures</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
-
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="http://github.com/housewifehacker">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
@@ -28,58 +24,58 @@
                 <article>
                     <h1 class="entry-title"><a href="http://housewifehacker.com/easy-anagram-dictionaries-practice.html">Easy Anagram Dictionaries Practice</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2012-05-15T00:00:00">
+        <abbr class="published" title="2012-05-15T00:00:00-04:00">
                 Published: May 2012
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/dictionary.html">dictionary</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
 </footer><!-- /.post-info --><p>I do not use dictionaries very often. Friday, I was without internet all day, so I took the opportunity to play with dir() and help() to discover some dictionary properties. My short-lived obsession with Draw Something on the iPhone has gotten me interested in anagrams (kicked the habit by reading programming books). I believe using dictionaries is the fastest and most accurate way to determine if two words are anagrams of each other, at least without importing any other modules.</p>
 <p>A dictionary is an unordered set of key: value pairs. Keys must be an immutable type. Values can be anything. Being unordered causes some interesting properties for working with dictionaries, different from any other python data structure. Instead of being indexed by numbers, dictionaries are indexed by keys. Because they are indexed by keys, each key is unique within it's dictionary. If two dictionaries with the same keys are added to each other, the values of the same data type combine. This is convenient for our anagram activity. But first, some dictionary review.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c"># creates an empty dictionary</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c1"># creates an empty dictionary</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span> <span class="p">)</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;dict&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Jessie&#39;</span>        <span class="c"># creating a key:value pair</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>        <span class="c"># another key:value pair</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;dict&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jessie&#39;</span>        <span class="c1"># creating a key:value pair</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>        <span class="c1"># another key:value pair</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span>
-<span class="p">{</span><span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">,</span> <span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>        <span class="c"># another way to create dict</span>
+<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>        <span class="c1"># another way to create dict</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span> <span class="p">(</span><span class="n">sample_dict2</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;dict&#39;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;dict&#39;</span><span class="o">&gt;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict2</span>
-<span class="p">{</span><span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">+</span> <span class="n">sample_dict2</span>        <span class="c"># cannot add dictionaries, only values</span>
+<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">+</span> <span class="n">sample_dict2</span>        <span class="c1"># cannot add dictionaries, only values</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;console&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s">&#39;dict&#39;</span> <span class="ow">and</span> <span class="s">&#39;dict&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s">&#39;Age&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample_dict2</span><span class="p">[</span><span class="s">&#39;Age&#39;</span><span class="p">]</span>        <span class="c"># adds values</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;console&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span> <span class="ow">and</span> <span class="s1">&#39;dict&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample_dict2</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>        <span class="c1"># adds values</span>
 <span class="mi">46</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="p">[</span><span class="s">&#39;Age&#39;</span><span class="p">,</span> <span class="s">&#39;Name&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="s">&#39;Jessie&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="p">)</span>        <span class="c"># keys and values are returned as lists</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;list&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;Age&#39;</span><span class="p">)</span>        <span class="c"># gets the value at a specific key</span>
+<span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="p">)</span>        <span class="c1"># keys and values are returned as lists</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;list&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>        <span class="c1"># gets the value at a specific key</span>
 <span class="mi">23</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;Age&#39;</span><span class="p">))</span>         <span class="c"># value maintains data type in dictionary</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;int&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;Age&#39;</span><span class="p">)</span>        <span class="c"># D.has_key() returns boolean</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">))</span>         <span class="c1"># value maintains data type in dictionary</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>        <span class="c1"># D.has_key() returns boolean</span>
 <span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Children&#39;</span><span class="p">:</span> <span class="s">&#39;Graham&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sample_dict</span><span class="p">)</span>        <span class="c"># update keys and values</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Children&#39;</span><span class="p">:</span> <span class="s1">&#39;Graham&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sample_dict</span><span class="p">)</span>        <span class="c1"># update keys and values</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span>
-<span class="p">{</span><span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span>        <span class="c"># Children field is added as a key:value pair</span>
-<span class="p">{</span><span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&#39;Children&#39;</span><span class="p">:</span> <span class="s">&#39;Graham&#39;</span><span class="p">,</span> <span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s">&#39;Name&#39;</span><span class="p">:</span> <span class="s">&#39;Jessie&#39;</span><span class="p">,</span> <span class="s">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>        <span class="c"># different order is equal</span>
+<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span>        <span class="c1"># Children field is added as a key:value pair</span>
+<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Children&#39;</span><span class="p">:</span> <span class="s1">&#39;Graham&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>        <span class="c1"># different order is equal</span>
 <span class="bp">True</span>
 </pre></div>
 <p>How do we know if two words are anagrams? Consider the anagrams odor and door. We could say that they are reshuffled strings. Each word uses the same letters, but in a different order: 2 o's, 1 r, and 1 d. My simple program creates empty dictionaries for the two words being compared, stores the letters as keys, and adds to the value for each occurrence of the same letter, then checks that the dictionaries are equivalent. I have not included exception handling and I made the design decision to count white space as part of the anagram such that 'abc def' is not an anagram of 'fdeabc,' but is an anagram of 'abc fed.'</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
             <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -88,18 +84,18 @@
     <span class="k">return</span> <span class="n">count</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the first word? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the second? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the first word? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the second? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">count1</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">count2</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">count1</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="n">count1</span><span class="p">)</span>
     <span class="n">count2</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word2</span><span class="p">,</span> <span class="n">count2</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">count1</span> <span class="o">==</span> <span class="n">count2</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
                 </article>
@@ -117,16 +113,16 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2012-05-07T00:00:00">
+        <abbr class="published" title="2012-05-07T00:00:00-04:00">
                 Published: May 2012
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> </p>
-</footer><!-- /.post-info -->                <p>Strings, lists, tuples, integers, float, dictionaries, and sets are all types of python objects with different properties and uses. When using an object in a program or in your terminal, your session assigns an Id to access the computer's memory. The Id will be unique each session and on ...</p>
+</footer><!-- /.post-info -->                <p>Strings, lists, tuples, integers, float, dictionaries, and sets are all types of python objects with different properties and uses. When using an object in a program or in your terminal, your session assigns an Id to access the computer's memory. The Id will be unique each session and on each …</p>
                 <a class="readmore" href="http://housewifehacker.com/mutable-versus-immutable-object-types.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -139,27 +135,24 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-10-18T00:00:00">
+        <abbr class="published" title="2010-10-18T00:00:00-03:00">
                 Published: October 2010
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/strings.html">strings</a> </p>
-</footer><!-- /.post-info -->                <p>A Python string's properties can be best understood by using sentences and words, although numbers can also be stored as strings. Be careful not to name a string as 'str' or 'string', because these are built in functions in Python. Let's play with some basic functions you can ...</p>
+</footer><!-- /.post-info -->                <p>A Python string's properties can be best understood by using sentences and words, although numbers can also be stored as strings. Be careful not to name a string as 'str' or 'string', because these are built in functions in Python. Let's play with some basic functions you can do to …</p>
                 <a class="readmore" href="http://housewifehacker.com/indexes-strings-and-lists.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                             <li><a href="http://python.org">Python.org</a></li>
@@ -184,14 +177,13 @@
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3721-0283']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>

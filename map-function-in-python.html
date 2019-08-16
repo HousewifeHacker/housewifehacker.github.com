@@ -5,15 +5,11 @@
         <title>Map Function in Python</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
-
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="http://github.com/housewifehacker">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
@@ -29,47 +25,47 @@
       <h1 class="entry-title">
         <a href="http://housewifehacker.com/map-function-in-python.html" rel="bookmark"
            title="Permalink to Map Function in Python">Map Function in Python</a></h1>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-10-20T00:00:00">
+        <abbr class="published" title="2010-10-20T00:00:00-03:00">
                 Published: October 2010
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/modules.html">modules</a> </p>
 </footer><!-- /.post-info -->      <p>Today I discovered the map function in Python. Map causes some simple for loops to be verbose and unnecessary. Let's look at how to change a list of integers to a list of strings. First we'll use a for loop:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
 <span class="o">...</span>   <span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
 <span class="o">...</span>   <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="o">...</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span>
-<span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">]</span>
 </pre></div>
 <p>Now we'll use the map function and we'll define our 1-5 list using the range function</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">list1</span><span class="p">)</span>        <span class="c"># performs str to each index of list1</span>
-<span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">list1</span><span class="p">)</span>        <span class="c1"># performs str to each index of list1</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">]</span>
 </pre></div>
 <p>You can also make your list within the map function, such as splitting a string into a list. The following example shows how you can define a method using else, elif (else if), and if statements, then run your method to a single string with the map function, resulting in a list with the method performed to each index.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">pluralize</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-<span class="o">...</span>   <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;y&#39;</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;ies&#39;</span>      <span class="c"># replaces y with ies</span>
-<span class="o">...</span>   <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;s&#39;</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">return</span> <span class="n">word</span> <span class="o">+</span> <span class="s">&#39;es&#39;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">pluralize</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<span class="o">...</span>   <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;ies&#39;</span>      <span class="c1"># replaces y with ies</span>
+<span class="o">...</span>   <span class="k">elif</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">word</span> <span class="o">+</span> <span class="s1">&#39;es&#39;</span>
 <span class="o">...</span>   <span class="k">else</span><span class="p">:</span>
-<span class="o">...</span>     <span class="k">return</span> <span class="n">word</span> <span class="o">+</span> <span class="s">&#39;s&#39;</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">word</span> <span class="o">+</span> <span class="s1">&#39;s&#39;</span>
 <span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span> <span class="n">pluralize</span><span class="p">,</span> <span class="s">&quot;The sexy waitress brought me a beer&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-<span class="p">[</span><span class="s">&#39;Thes&#39;</span><span class="p">,</span> <span class="s">&#39;sexies&#39;</span><span class="p">,</span> <span class="s">&#39;waitresses&#39;</span><span class="p">,</span> <span class="s">&#39;broughts&#39;</span><span class="p">,</span> <span class="s">&#39;mes&#39;</span><span class="p">,</span> <span class="s">&#39;as&#39;</span><span class="p">,</span> <span class="s">&#39;beers&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span><span class="c"># my husband chose the sentence</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span> <span class="n">pluralize</span><span class="p">,</span> <span class="s2">&quot;The sexy waitress brought me a beer&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="p">[</span><span class="s1">&#39;Thes&#39;</span><span class="p">,</span> <span class="s1">&#39;sexies&#39;</span><span class="p">,</span> <span class="s1">&#39;waitresses&#39;</span><span class="p">,</span> <span class="s1">&#39;broughts&#39;</span><span class="p">,</span> <span class="s1">&#39;mes&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;beers&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span><span class="c1"># my husband chose the sentence</span>
 </pre></div>
 <p>I simplified my method to not account for every scenario put into it. Although this specific example does not produce correct English, the map function correctly split the string on the whitespace and carried out the method on each index of the list.</p>
 
@@ -79,7 +75,7 @@
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                             <li><a href="http://python.org">Python.org</a></li>
@@ -104,14 +100,13 @@
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3721-0283']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>

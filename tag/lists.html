@@ -5,15 +5,11 @@
         <title>housewife_hacker - lists</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
-
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="http://github.com/housewifehacker">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
@@ -28,43 +24,43 @@
                 <article>
                     <h1 class="entry-title"><a href="http://housewifehacker.com/mutable-versus-immutable-object-types.html">Mutable versus Immutable Object Types</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2012-05-07T00:00:00">
+        <abbr class="published" title="2012-05-07T00:00:00-04:00">
                 Published: May 2012
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> </p>
 </footer><!-- /.post-info --><p>Strings, lists, tuples, integers, float, dictionaries, and sets are all types of python objects with different properties and uses. When using an object in a program or in your terminal, your session assigns an Id to access the computer's memory. The Id will be unique each session and on each computer, so the actual number returned by the id() function is irrelevant. What is relevant is when that number changes. If the id changes as the value changes, the computer had to assign a new id to the immutable object. If the id stays the same, then it is a mutable object, because the value associated with the id can be changed without changing the id. Integers are immutable:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>        <span class="c"># direct the reference of y to be the reference of x</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># x and y point to same reference</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>        <span class="c1"># direct the reference of y to be the reference of x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1"># x and y point to same reference</span>
 <span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c"># change the value of x</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># the id of x changed when the value changed</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># change the value of x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1"># the id of x changed when the value changed</span>
 <span class="bp">False</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>        <span class="c"># the value of y did not change with x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>        <span class="c1"># the value of y did not change with x</span>
 <span class="bp">False</span>
 </pre></div>
 <p>I'm the type of learner that skims through vocabulary lessons to get to the action, but understanding this next part will save you some headaches when trying to manipulate mutable objects. Look what happens when I try to do the same thing I just did to the integers, but now to a list:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>        <span class="c"># direct the reference of y to be the reference of x</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># x and y point to the same reference</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>        <span class="c1"># direct the reference of y to be the reference of x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1"># x and y point to the same reference</span>
 <span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>        <span class="c">#change x from [5] to [5, 4]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c"># x and y still point to the same reference</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>        <span class="c1">#change x from [5] to [5, 4]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1"># x and y still point to the same reference</span>
 <span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>        <span class="c"># y changed with x</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>        <span class="c1"># y changed with x</span>
 <span class="bp">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
 <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>        <span class="c"># will be a different number for everyone</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>        <span class="c1"># will be a different number for everyone</span>
 <span class="il">3075316972L</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c"># z is now [5, 5, 3]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>        <span class="c"># id is constant, the list is mutable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c1"># z is now [5, 5, 3]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>        <span class="c1"># id is constant, the list is mutable</span>
 <span class="il">3075316972L</span>
 </pre></div>
 <p>I stumbled upon this while using random.shuffle on a list, while wishing to keep a copy of the list in it's original form. As you can see by assigning x equal to y, the lists changed together. That was an ineffective way to make a copy because all I did was assign the same Id two different names. Try determining if the other object types are mutable or immutable. I don't want to spoil the fun for you.</p>
@@ -83,27 +79,24 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-10-18T00:00:00">
+        <abbr class="published" title="2010-10-18T00:00:00-03:00">
                 Published: October 2010
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/strings.html">strings</a> </p>
-</footer><!-- /.post-info -->                <p>A Python string's properties can be best understood by using sentences and words, although numbers can also be stored as strings. Be careful not to name a string as 'str' or 'string', because these are built in functions in Python. Let's play with some basic functions you can ...</p>
+</footer><!-- /.post-info -->                <p>A Python string's properties can be best understood by using sentences and words, although numbers can also be stored as strings. Be careful not to name a string as 'str' or 'string', because these are built in functions in Python. Let's play with some basic functions you can do to …</p>
                 <a class="readmore" href="http://housewifehacker.com/indexes-strings-and-lists.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                             <li><a href="http://python.org">Python.org</a></li>
@@ -128,14 +121,13 @@
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3721-0283']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>

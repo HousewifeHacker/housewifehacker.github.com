@@ -5,15 +5,11 @@
         <title>housewife_hacker - Code</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
-
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="http://github.com/housewifehacker">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
@@ -28,18 +24,18 @@
                 <article>
                     <h1 class="entry-title"><a href="http://housewifehacker.com/pythons-dictionary-get.html">Python's Dictionary Get</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2014-10-16T00:00:00">
+        <abbr class="published" title="2014-10-16T00:00:00-03:00">
                 Published: October 2014
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 
 </footer><!-- /.post-info --><p>In a Python dictionary, one way to return the value for a specific key is a_dictionary[key]. Another way is to use the get method: a_dictionary.get(key). The difference is when the key is not in the dictionary. The bracket method returns an error, but the get method is silent. Get is a method that not only returns the value at a key, but also sets a default return value. When not specified, the default is None, which is why it was silent. If you wrap a_dictionary.get(&quot;absent_key&quot;) in a print call, it prints None. An empty list or 0 are the default values I've used most.</p>
 <p>A common exercise for a dictionary is an anagram detector. I've seen this problem so many times, but only recently discovered the get method to make it cleaner and more efficient. First, the solution from earlier times. This was from a blog post of mine in 2012:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
             <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -48,44 +44,44 @@
     <span class="k">return</span> <span class="n">count</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the first word? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the second? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the first word? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the second? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">count1</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">count2</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">count1</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="n">count1</span><span class="p">)</span>
     <span class="n">count2</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word2</span><span class="p">,</span> <span class="n">count2</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">count1</span> <span class="o">==</span> <span class="n">count2</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 <p>Actually, Python 3 no longer includes: a_dictionary.has_key(&quot;example&quot;). A suggested alternative mentioned in Dive Into Python 3 is: &quot;example&quot; in a_dictionary. That's great if you want a boolean returned, but we want to modify the value regardless. If the key exists, add 1. If it doesn't exist, add 1 to 0. We need a default value of 0 if the key does not already exist, which is what the get method does for us. Now just a small change to the helper get_dict function from 2012 version:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">count</span>
 </pre></div>
 <p>Passing in an empty dictionary is kind of silly. So one more change:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
         <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">count</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the first word? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;What is the second? </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the first word? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the second? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">count1</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word1</span><span class="p">)</span>
     <span class="n">count2</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word2</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">count1</span> <span class="o">==</span> <span class="n">count2</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
                 </article>
@@ -103,16 +99,16 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-10-13T00:00:00">
+        <abbr class="published" title="2014-10-13T00:00:00-03:00">
                 Published: October 2014
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 
-</footer><!-- /.post-info -->                <p>Bcrypt is an algorithm for hashing passwords that can be implemented in many programming languages. When a user signs up or logs in, the password they entered is sent to the server. SSL should be used for this stage, but that is separate from bcrypt. Bcrypt's job is to ...</p>
+</footer><!-- /.post-info -->                <p>Bcrypt is an algorithm for hashing passwords that can be implemented in many programming languages. When a user signs up or logs in, the password they entered is sent to the server. SSL should be used for this stage, but that is separate from bcrypt. Bcrypt's job is to protect …</p>
                 <a class="readmore" href="http://housewifehacker.com/bcrypt-with-rails.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -125,16 +121,16 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2012-06-02T00:00:00">
+        <abbr class="published" title="2012-06-02T00:00:00-04:00">
                 Published: June 2012
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/intermediate.html">intermediate</a> <a href="http://housewifehacker.com/tag/games.html">games</a> <a href="http://housewifehacker.com/tag/string-formatting.html">string formatting</a> <a href="http://housewifehacker.com/tag/exception-handling.html">exception handling</a> <a href="http://housewifehacker.com/tag/debugging.html">debugging</a> </p>
-</footer><!-- /.post-info -->                <p>In my first month of learning python, I wrote a simple guess the number game. It did not include exception handling, was not pep8 compliant, and was organized somewhat poorly. It also needed updating because it used what I like to call &quot;C Print Formatting,&quot; which used to be correct ...</p>
+</footer><!-- /.post-info -->                <p>In my first month of learning python, I wrote a simple guess the number game. It did not include exception handling, was not pep8 compliant, and was organized somewhat poorly. It also needed updating because it used what I like to call &quot;C Print Formatting,&quot; which used to be correct …</p>
                 <a class="readmore" href="http://housewifehacker.com/intermediate-guess-number-python-game.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -147,16 +143,16 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2012-05-15T00:00:00">
+        <abbr class="published" title="2012-05-15T00:00:00-04:00">
                 Published: May 2012
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/dictionary.html">dictionary</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
-</footer><!-- /.post-info -->                <p>I do not use dictionaries very often. Friday, I was without internet all day, so I took the opportunity to play with dir() and help() to discover some dictionary properties. My short-lived obsession with Draw Something on the iPhone has gotten me interested in anagrams (kicked the habit by reading ...</p>
+</footer><!-- /.post-info -->                <p>I do not use dictionaries very often. Friday, I was without internet all day, so I took the opportunity to play with dir() and help() to discover some dictionary properties. My short-lived obsession with Draw Something on the iPhone has gotten me interested in anagrams (kicked the habit by reading …</p>
                 <a class="readmore" href="http://housewifehacker.com/easy-anagram-dictionaries-practice.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -169,16 +165,16 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2012-05-07T00:00:00">
+        <abbr class="published" title="2012-05-07T00:00:00-04:00">
                 Published: May 2012
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> </p>
-</footer><!-- /.post-info -->                <p>Strings, lists, tuples, integers, float, dictionaries, and sets are all types of python objects with different properties and uses. When using an object in a program or in your terminal, your session assigns an Id to access the computer's memory. The Id will be unique each session and on ...</p>
+</footer><!-- /.post-info -->                <p>Strings, lists, tuples, integers, float, dictionaries, and sets are all types of python objects with different properties and uses. When using an object in a program or in your terminal, your session assigns an Id to access the computer's memory. The Id will be unique each session and on each …</p>
                 <a class="readmore" href="http://housewifehacker.com/mutable-versus-immutable-object-types.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -191,16 +187,16 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-10-25T00:00:00">
+        <abbr class="published" title="2010-10-25T00:00:00-03:00">
                 Published: October 2010
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/games.html">games</a> <a href="http://housewifehacker.com/tag/string-formatting.html">string formatting</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
-</footer><!-- /.post-info -->                <p>During my first month of learning python, I wrote a game to guess a number between 1 and 20 with six attempts. This simple game is good practice for a beginner. A better written and more advanced version can be found at <a class="reference external" href="http://housewifehacker.com/intermediate-guess-number-python-game.html">http://housewifehacker.com/intermediate-guess-number-python-game.html</a>. This example is ...</p>
+</footer><!-- /.post-info -->                <p>During my first month of learning python, I wrote a game to guess a number between 1 and 20 with six attempts. This simple game is good practice for a beginner. A better written and more advanced version can be found at <a class="reference external" href="http://housewifehacker.com/intermediate-guess-number-python-game.html">http://housewifehacker.com/intermediate-guess-number-python-game.html</a>. This example is …</p>
                 <a class="readmore" href="http://housewifehacker.com/2010-guess-the-number-game.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -213,24 +209,24 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-10-22T00:00:00">
+        <abbr class="published" title="2010-10-22T00:00:00-03:00">
                 Published: October 2010
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/modules.html">modules</a> <a href="http://housewifehacker.com/tag/math.html">math</a> </p>
 </footer><!-- /.post-info -->                <p>The built in math functions in Python use binary approximations, giving some funky results when dealing with numbers containing decimals:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="o">.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="o">.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span>
 <span class="mf">0.30000000000000004</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">round</span><span class="p">(</span><span class="mf">100.00</span> <span class="o">/</span> <span class="mf">3.000</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="mf">33.333300000000001</span>
 </pre></div>
 <p>One way to appropriately find the sum of decimals is to use strings</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
-<span class="s">&#39;0.3 ...</span></pre></div>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="o">.</span><span class="mi">1</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="s1">&#39;0.3 …</span></pre></div>
                 <a class="readmore" href="http://housewifehacker.com/decimal-to-change-number-precision.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -242,7 +238,7 @@
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                             <li><a href="http://python.org">Python.org</a></li>
@@ -267,14 +263,13 @@
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3721-0283']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>

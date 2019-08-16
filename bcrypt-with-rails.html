@@ -5,15 +5,11 @@
         <title>Bcrypt with Rails</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
-
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="http://github.com/housewifehacker">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
@@ -29,53 +25,53 @@
       <h1 class="entry-title">
         <a href="http://housewifehacker.com/bcrypt-with-rails.html" rel="bookmark"
            title="Permalink to Bcrypt with Rails">Bcrypt with Rails</a></h1>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2014-10-13T00:00:00">
+        <abbr class="published" title="2014-10-13T00:00:00-03:00">
                 Published: October 2014
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 
 </footer><!-- /.post-info -->      <p>Bcrypt is an algorithm for hashing passwords that can be implemented in many programming languages. When a user signs up or logs in, the password they entered is sent to the server. SSL should be used for this stage, but that is separate from bcrypt. Bcrypt's job is to protect the password when it gets in the database. It does its job pretty well. Despite being first introduced in 1999 and being extremely popular, it has still not been compromised.</p>
 <p>Each new password sent to the database is salted and ciphered before being stored as a hash. In our database, the password hash is stored as password_digest. To verify a password on login, the password attempt is also ciphered to check if the hashes come from the same string, the actual password. A password hash is never unciphered. If someone does get the database, they could only try to guess each password, but bcrypt would actually slow down the more they try.</p>
 <p>Many auth libraries do use bcrypt, but the bcrypt gem makes it simple enough to roll our own auth in Rails. First, our Users table needs to have a password digest column.</p>
-<div class="highlight"><pre>rails g model user username password_digest
+<div class="highlight"><pre><span></span>rails g model user username password_digest
 rake db:migrate
 </pre></div>
 <p>We need to add the bcrypt gem in our Gemfile. It is probably in your Gemfile already, but commented out. If so, you can just uncomment it. Don't forget bundle install after the change. This gem gives us methods we will use in our user model.</p>
-<div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;bcrypt&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">gem</span> <span class="s1">&#39;bcrypt&#39;</span>
 </pre></div>
 <p>Our User model needs a method to cipher the password when it is created. It also needs a method to cipher password attempts and return a boolean for if it is a match.</p>
-<div class="highlight"><pre><span class="c1"># app/models/user.rb</span>
-<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+<div class="highlight"><pre><span></span><span class="c1"># app/models/user.rb</span>
+<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 
   <span class="k">def</span> <span class="nf">password</span><span class="o">=</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-    <span class="nb">self</span><span class="o">.</span><span class="n">password_digest</span> <span class="o">=</span> <span class="ss">BCrypt</span><span class="p">:</span><span class="ss">:Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">password_digest</span> <span class="o">=</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">is_password?</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
-    <span class="ss">BCrypt</span><span class="p">:</span><span class="ss">:Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">password_digest</span><span class="p">)</span> <span class="o">==</span> <span class="n">password</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">self</span><span class="o">.</span><span class="n">password_digest</span><span class="p">)</span> <span class="o">==</span> <span class="n">password</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
 <p>Now in our rails console, create a user. We can view it's password digest, and use the is_password? method. All bcrypt password digests start with &quot;$2a$&quot; or &quot;2y&quot;.</p>
-<div class="highlight"><pre>irb<span class="o">(</span>main<span class="o">)</span>:001:0&gt; <span class="nv">u</span> <span class="o">=</span> User.new<span class="o">({</span>username: <span class="s2">&quot;jessie&quot;</span>, password: <span class="s2">&quot;jessiejessie&quot;</span><span class="o">})</span>
-<span class="o">=</span>&gt; <span class="c">#&lt;User id: nil, username: &quot;jessie&quot;, password_digest: &quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT...&quot;, created_at: nil, updated_at: nil&gt;</span>
+<div class="highlight"><pre><span></span>irb<span class="o">(</span>main<span class="o">)</span>:001:0&gt; <span class="nv">u</span> <span class="o">=</span> User.new<span class="o">({</span>username: <span class="s2">&quot;jessie&quot;</span>, password: <span class="s2">&quot;jessiejessie&quot;</span><span class="o">})</span>
+<span class="o">=</span>&gt; <span class="c1">#&lt;User id: nil, username: &quot;jessie&quot;, password_digest: &quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT...&quot;, created_at: nil, updated_at: nil&gt;</span>
 irb<span class="o">(</span>main<span class="o">)</span>:002:0&gt; u.save
-<span class="o">(</span>0.3ms<span class="o">)</span>  begin transaction
-Binary data inserted <span class="k">for</span> <span class="sb">`</span>string<span class="sb">`</span> <span class="nb">type </span>on column <span class="sb">`</span>password_digest<span class="sb">`</span>
-SQL <span class="o">(</span>0.4ms<span class="o">)</span>  INSERT INTO <span class="s2">&quot;users&quot;</span> <span class="o">(</span><span class="s2">&quot;created_at&quot;</span>, <span class="s2">&quot;password_digest&quot;</span>, <span class="s2">&quot;updated_at&quot;</span>, <span class="s2">&quot;username&quot;</span><span class="o">)</span> VALUES <span class="o">(</span>?, ?, ?, ?<span class="o">)</span>  <span class="o">[[</span><span class="s2">&quot;created_at&quot;</span>, <span class="s2">&quot;2014-10-14 00:41:45.144329&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;password_digest&quot;</span>, <span class="s2">&quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT6E.33WchK6&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;updated_at&quot;</span>, <span class="s2">&quot;2014-10-14 00:41:45.144329&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;username&quot;</span>, <span class="s2">&quot;jessie&quot;</span><span class="o">]]</span>
-<span class="o">(</span>19.5ms<span class="o">)</span>  commit <span class="nv">transaction</span>
+<span class="o">(</span><span class="m">0</span>.3ms<span class="o">)</span>  begin transaction
+Binary data inserted <span class="k">for</span> <span class="sb">`</span>string<span class="sb">`</span> <span class="nb">type</span> on column <span class="sb">`</span>password_digest<span class="sb">`</span>
+SQL <span class="o">(</span><span class="m">0</span>.4ms<span class="o">)</span>  INSERT INTO <span class="s2">&quot;users&quot;</span> <span class="o">(</span><span class="s2">&quot;created_at&quot;</span>, <span class="s2">&quot;password_digest&quot;</span>, <span class="s2">&quot;updated_at&quot;</span>, <span class="s2">&quot;username&quot;</span><span class="o">)</span> VALUES <span class="o">(</span>?, ?, ?, ?<span class="o">)</span>  <span class="o">[[</span><span class="s2">&quot;created_at&quot;</span>, <span class="s2">&quot;2014-10-14 00:41:45.144329&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;password_digest&quot;</span>, <span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">a</span><span class="nv">$10$Q5UXCiS7hTHCJmL</span><span class="s2">.ZBKVXeTxdyLij8.pdwYqlIR81bT6E.33WchK6&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;updated_at&quot;</span>, <span class="s2">&quot;2014-10-14 00:41:45.144329&quot;</span><span class="o">]</span>, <span class="o">[</span><span class="s2">&quot;username&quot;</span>, <span class="s2">&quot;jessie&quot;</span><span class="o">]]</span>
+<span class="o">(</span><span class="m">19</span>.5ms<span class="o">)</span>  commit <span class="nv">transaction</span>
 <span class="o">=</span>&gt; <span class="nb">true</span>
 irb<span class="o">(</span>main<span class="o">)</span>:003:0&gt; <span class="nv">u</span>
-<span class="o">=</span>&gt; <span class="c">#&lt;User id: 1, username: &quot;jessie&quot;, password_digest: &quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT...&quot;, created_at: &quot;2014-10-14 00:41:45&quot;, updated_at: &quot;2014-10-14 00:41:45&quot;&gt;</span>
+<span class="o">=</span>&gt; <span class="c1">#&lt;User id: 1, username: &quot;jessie&quot;, password_digest: &quot;$2a$10$Q5UXCiS7hTHCJmL.ZBKVXeTxdyLij8.pdwYqlIR81bT...&quot;, created_at: &quot;2014-10-14 00:41:45&quot;, updated_at: &quot;2014-10-14 00:41:45&quot;&gt;</span>
 irb<span class="o">(</span>main<span class="o">)</span>:004:0&gt; u.is_password?<span class="o">(</span><span class="s2">&quot;jessiejessie&quot;</span><span class="o">)</span>
 <span class="o">=</span>&gt; <span class="nb">true</span>
 irb<span class="o">(</span>main<span class="o">)</span>:005:0&gt; u.is_password?<span class="o">(</span><span class="s2">&quot;jessie&quot;</span><span class="o">)</span>
@@ -89,7 +85,7 @@ irb<span class="o">(</span>main<span class="o">)</span>:005:0&gt; u.is_password?
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                             <li><a href="http://python.org">Python.org</a></li>
@@ -114,14 +110,13 @@ irb<span class="o">(</span>main<span class="o">)</span>:005:0&gt; u.is_password?
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3721-0283']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>

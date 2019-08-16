@@ -5,15 +5,11 @@
         <title>Indexes, Strings, and Lists</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
-
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
 </head>
 
 <body id="index" class="home">
 <a href="http://github.com/housewifehacker">
-<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
 </a>
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
@@ -29,70 +25,70 @@
       <h1 class="entry-title">
         <a href="http://housewifehacker.com/indexes-strings-and-lists.html" rel="bookmark"
            title="Permalink to Indexes, Strings, and Lists">Indexes, Strings, and Lists</a></h1>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-10-18T00:00:00">
+        <abbr class="published" title="2010-10-18T00:00:00-03:00">
                 Published: October 2010
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
         </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>. </p>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/strings.html">strings</a> </p>
 </footer><!-- /.post-info -->      <p>A Python string's properties can be best understood by using sentences and words, although numbers can also be stored as strings. Be careful not to name a string as 'str' or 'string', because these are built in functions in Python. Let's play with some basic functions you can do to strings</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">gypsychemist</span><span class="nd">@inspidell</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">python</span>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">gypsychemist</span><span class="nd">@inspidell</span> <span class="o">~</span><span class="p">]</span><span class="err">$</span> <span class="n">python</span>
 <span class="n">Python</span> <span class="mf">2.6</span><span class="o">.</span><span class="mi">4</span> <span class="p">(</span><span class="n">r264</span><span class="p">:</span><span class="mi">75706</span><span class="p">,</span> <span class="n">Jun</span>  <span class="mi">4</span> <span class="mi">2010</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">16</span><span class="p">)</span>
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">4</span> <span class="mi">20100503</span> <span class="p">(</span><span class="n">Red</span> <span class="n">Hat</span> <span class="mf">4.4</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mi">2</span><span class="p">)]</span> <span class="n">on</span> <span class="n">linux2</span>
-<span class="n">Type</span> <span class="s">&quot;help&quot;</span><span class="p">,</span> <span class="s">&quot;copyright&quot;</span><span class="p">,</span> <span class="s">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span>
 <span class="n">information</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sentence1</span> <span class="o">=</span> <span class="s">&#39;This is two strings &#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sentence2</span> <span class="o">=</span> <span class="s">&#39;combined.&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sentence1</span> <span class="o">=</span> <span class="s1">&#39;This is two strings &#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sentence2</span> <span class="o">=</span> <span class="s1">&#39;combined.&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">sentence1</span> <span class="o">+</span> <span class="n">sentence2</span>
-<span class="s">&#39;This is two strings combined.&#39;</span>
+<span class="s1">&#39;This is two strings combined.&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sentence1</span> <span class="o">+</span> <span class="n">sentence2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">s</span>
 <span class="n">This</span> <span class="ow">is</span> <span class="n">two</span> <span class="n">strings</span> <span class="n">combined</span><span class="o">.</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;Three quotes will</span>
-<span class="s">... preserve the formatting</span>
-<span class="s">... for multiple lines&#39;&#39;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Three quotes will</span>
+<span class="s1">... preserve the formatting</span>
+<span class="s1">... for multiple lines&#39;&#39;&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">r</span>
 <span class="n">Three</span> <span class="n">quotes</span> <span class="n">will</span>
 <span class="n">preserve</span> <span class="n">the</span> <span class="n">formatting</span>
 <span class="k">for</span> <span class="n">multiple</span> <span class="n">lines</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="p">[</span><span class="s">&#39;This&#39;</span><span class="p">,</span> <span class="s">&#39;is&#39;</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="s">&#39;strings&#39;</span><span class="p">,</span> <span class="s">&#39;combined.&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;e&#39;</span><span class="p">)</span>
-<span class="p">[</span><span class="s">&#39;Thr&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39; quot&#39;</span><span class="p">,</span> <span class="s">&#39;s will</span><span class="se">\n</span><span class="s">pr&#39;</span><span class="p">,</span> <span class="s">&#39;s&#39;</span><span class="p">,</span> <span class="s">&#39;rv&#39;</span><span class="p">,</span> <span class="s">&#39; th&#39;</span><span class="p">,</span>
-<span class="s">&#39; formatting</span><span class="se">\n</span><span class="s">for multipl&#39;</span><span class="p">,</span> <span class="s">&#39; lin&#39;</span><span class="p">,</span> <span class="s">&#39;s&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;This&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;strings&#39;</span><span class="p">,</span> <span class="s1">&#39;combined.&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;Thr&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39; quot&#39;</span><span class="p">,</span> <span class="s1">&#39;s will</span><span class="se">\n</span><span class="s1">pr&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;rv&#39;</span><span class="p">,</span> <span class="s1">&#39; th&#39;</span><span class="p">,</span>
+<span class="s1">&#39; formatting</span><span class="se">\n</span><span class="s1">for multipl&#39;</span><span class="p">,</span> <span class="s1">&#39; lin&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">]</span>
 </pre></div>
 <p>The split command divides a string into a list based on the delimiter you define. In the example of splitting the s string, leaving the delimiter blank causes splitting on all white spaces (tab, enter, space). Anything can be the delimiter, such as using 'e' in the splitting of r example. 'n' is a new line.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="s">&quot;  The extra white space on the ends     &quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s">&#39; is removed by the strip function&#39;</span>
-<span class="s">&#39;The extra white space on the ends is removed by the</span>
-<span class="n">strip</span> <span class="n">function</span><span class="s">&#39;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="s2">&quot;  The extra white space on the ends     &quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; is removed by the strip function&#39;</span>
+<span class="s1">&#39;The extra white space on the ends is removed by the</span>
+<span class="n">strip</span> <span class="n">function</span><span class="s1">&#39;</span>
 </pre></div>
 <p>Indexes are useful for both strings and lists. The letters or numbers in a string begin with the index 0, or you can work from the back with index of -1. When selecting a range of indexes, the last number is excluded.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="s">&#39;hello&#39;</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="s">&#39;he&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>        <span class="c"># a starting index of 0 is assumed</span>
-<span class="s">&#39;he&#39;</span>
+<span class="s1">&#39;he&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>        <span class="c1"># a starting index of 0 is assumed</span>
+<span class="s1">&#39;he&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="s">&#39;l&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>        <span class="c"># completing until the end is assumed</span>
-<span class="s">&#39;lo&#39;</span>
+<span class="s1">&#39;l&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>        <span class="c1"># completing until the end is assumed</span>
+<span class="s1">&#39;lo&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="s">&#39;l&#39;</span>
+<span class="s1">&#39;l&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-<span class="s">&#39;helo&#39;</span>
+<span class="s1">&#39;helo&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="mi">1</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>        <span class="c"># doesn&#39;t work</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># doesn&#39;t work</span>
 <span class="p">[]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -101,49 +97,49 @@
 </pre></div>
 <p>'#' is used in Python to write comments. They are ignored in programs and are very useful to solve problems, either to write out a plan or to type in a literal translation of how you expect your code to perform. If your code does not work correctly, you can go back through your notes to quickly find where your logic or syntax may be incorrect.</p>
 <p>As I mentioned briefly in the beginning, a number can also be a string. If a number is a string, it will be used a returned with quotation marks surrounding it. In Python, single quotes and double quotes act the same; however, the opening and closing ends need to be the same. The example below shows why you may want to change a number to a string:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="c"># cannot add an integer to a string</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s">&#39;The value of pi is often rounded to &#39;</span> <span class="o">+</span> <span class="n">pi</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># cannot add an integer to a string</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;The value of pi is often rounded to &#39;</span> <span class="o">+</span> <span class="n">pi</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<span class="n">File</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span>
-<span class="ne">TypeError</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">concatenate</span> <span class="s">&#39;str&#39;</span> <span class="ow">and</span> <span class="s">&#39;float&#39;</span> <span class="n">objects</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="c"># so we change pi to a string</span>
-<span class="o">&gt;&gt;&gt;</span><span class="k">print</span> <span class="s">&#39;The value of pi is often rounded to &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">File</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">concatenate</span> <span class="s1">&#39;str&#39;</span> <span class="ow">and</span> <span class="s1">&#39;float&#39;</span> <span class="n">objects</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># so we change pi to a string</span>
+<span class="o">&gt;&gt;&gt;</span><span class="k">print</span> <span class="s1">&#39;The value of pi is often rounded to &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">pi</span> <span class="ow">is</span> <span class="n">often</span> <span class="n">rounded</span> <span class="n">to</span> <span class="mf">3.14</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="c"># you can include a number after a string by using a comma</span>
-<span class="o">&gt;&gt;&gt;</span><span class="k">print</span> <span class="s">&#39;The value of pi is often rounded to&#39;</span><span class="p">,</span><span class="mf">3.14</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># you can include a number after a string by using a comma</span>
+<span class="o">&gt;&gt;&gt;</span><span class="k">print</span> <span class="s1">&#39;The value of pi is often rounded to&#39;</span><span class="p">,</span><span class="mf">3.14</span>
 <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">pi</span> <span class="ow">is</span> <span class="n">often</span> <span class="n">rounded</span> <span class="n">to</span> <span class="mf">3.14</span>
 </pre></div>
 <p>You can change a list of numbers to be a list of strings by using a for loop.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>       <span class="c"># returns the list index as a string without \</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>       <span class="c1"># returns the list index as a string without \</span>
 <span class="n">changing</span> <span class="n">the</span> <span class="nb">list</span>
-<span class="s">&#39;2&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span>        <span class="c"># list is still composed of integers</span>
+<span class="s1">&#39;2&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span>        <span class="c1"># list is still composed of integers</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c"># setting a variable to start at 0 because \</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1"># setting a variable to start at 0 because \</span>
 <span class="n">index</span> <span class="n">starts</span> <span class="n">at</span> <span class="mi">0</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span> <span class="c">#begins with index 0</span>
-<span class="o">...</span>   <span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>         <span class="c"># assigns index 0 integer \</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span> <span class="c1">#begins with index 0</span>
+<span class="o">...</span>   <span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">list</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>         <span class="c1"># assigns index 0 integer \</span>
 <span class="k">as</span> <span class="n">a</span> <span class="n">string</span> <span class="n">of</span> <span class="n">the</span> <span class="n">previous</span> <span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="o">...</span>   <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>        <span class="c"># after the previous command is performed on \</span>
+<span class="o">...</span>   <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>        <span class="c1"># after the previous command is performed on \</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">it</span> <span class="n">will</span> <span class="n">be</span> <span class="n">performed</span> <span class="n">on</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="o">...</span>   <span class="c">#for loop continues through indexes 1 to 4 after index 0</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span>        <span class="c"># our list is now changed to be strings</span>
-<span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">]</span>
+<span class="o">...</span>   <span class="c1">#for loop continues through indexes 1 to 4 after index 0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span>        <span class="c1"># our list is now changed to be strings</span>
+<span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">]</span>
 </pre></div>
 <p>Now lets play with some list commands that are nondiscriminate against strings or integers:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;10&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>        <span class="c"># add list1 to end of list, list + list1</span>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>        <span class="c1"># add list1 to end of list, list + list1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span>
-<span class="p">[</span><span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">,</span> <span class="s">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;10&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">)</span>        <span class="c"># inserts &#39;3&#39; at index 2</span>
+<span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span>        <span class="c1"># inserts &#39;3&#39; at index 2</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span>
-<span class="p">[</span><span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">,</span> <span class="s">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;10&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>        <span class="c"># now we&#39;ll insert an integer</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span>        <span class="c"># list can have combination of strings &amp; non \</span>
+<span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>        <span class="c1"># now we&#39;ll insert an integer</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="nb">list</span>        <span class="c1"># list can have combination of strings &amp; non \</span>
 <span class="n">strings</span>
-<span class="p">[</span><span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">,</span> <span class="s">&#39;7&#39;</span><span class="p">,</span> <span class="s">&#39;8&#39;</span><span class="p">,</span> <span class="s">&#39;9&#39;</span><span class="p">,</span> <span class="s">&#39;10&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">]</span>
 </pre></div>
 <p>For more documentation and to try writing example programs, visit Google's Python classroom: <a class="reference external" href="http://code.google.com/edu/languages/google-python-class/index.html">http://code.google.com/edu/languages/google-python-class/index.html</a></p>
 
@@ -153,7 +149,7 @@
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
-                        <h2>blogroll</h2>
+                        <h2>links</h2>
                         <ul>
                             <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
                             <li><a href="http://python.org">Python.org</a></li>
@@ -178,14 +174,13 @@
         </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3721-0283']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 </html>

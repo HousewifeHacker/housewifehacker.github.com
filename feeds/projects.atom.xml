@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>housewife_hacker</title><link href="http://housewifehacker.com/" rel="alternate"></link><link href="http://housewifehacker.com/feeds/projects.atom.xml" rel="self"></link><id>http://housewifehacker.com/</id><updated>2015-08-31T00:00:00-04:00</updated><entry><title>Sprite Viewer</title><link href="http://housewifehacker.com/sprite-viewer.html" rel="alternate"></link><updated>2015-08-31T00:00:00-04:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2015-08-31:sprite-viewer.html</id><summary type="html">&lt;p&gt;Given an image composed of sprites evenly spaced with the same dimensions, slide through viewing individual sprites. Uses ES6, HTML5 Canvas, and JQuery-UI Slider.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>housewife_hacker - Projects</title><link href="http://housewifehacker.com/" rel="alternate"></link><link href="http://housewifehacker.com/feeds/projects.atom.xml" rel="self"></link><id>http://housewifehacker.com/</id><updated>2019-08-14T00:00:00-04:00</updated><entry><title>Github Search Users</title><link href="http://housewifehacker.com/github-search-users.html" rel="alternate"></link><published>2019-08-14T00:00:00-04:00</published><updated>2019-08-14T00:00:00-04:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2019-08-14:/github-search-users.html</id><content type="html">&lt;ul class="simple"&gt;
+&lt;li&gt;Search for Github users and view some profile details, utilizing Github's REST API V3&lt;/li&gt;
+&lt;li&gt;Serverless React app&lt;/li&gt;
+&lt;li&gt;Styled with Material-UI&lt;/li&gt;
+&lt;li&gt;'Concurrent Mode' with debounce to reduce fetching and rendering with React hooks&lt;/li&gt;
+&lt;li&gt;Technologies: React, Axios, Material-UI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://housewifehacker.com/GithubUserSearch/"&gt;Live&lt;/a&gt;
+&lt;a class="reference external" href="http://www.github.com/housewifehacker/GithubUserSearch/"&gt;Github&lt;/a&gt;&lt;/p&gt;
+</content></entry><entry><title>Confirm Destruction Modal</title><link href="http://housewifehacker.com/confirm-destruction-modal.html" rel="alternate"></link><published>2019-06-22T00:00:00-04:00</published><updated>2019-06-22T00:00:00-04:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2019-06-22:/confirm-destruction-modal.html</id><content type="html">&lt;p&gt;Confirmation modal for users to reduce accidental destruction. Uses React, Reactstrap, and Font Awesome.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://codepen.io/HousewifeHacker/pen/EBQLyW"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+</content></entry><entry><title>Sprite Viewer</title><link href="http://housewifehacker.com/sprite-viewer.html" rel="alternate"></link><published>2015-08-31T00:00:00-03:00</published><updated>2015-08-31T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2015-08-31:/sprite-viewer.html</id><content type="html">&lt;p&gt;Given an image composed of sprites evenly spaced with the same dimensions, slide through viewing individual sprites. Uses ES6, HTML5 Canvas, and JQuery-UI Slider.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://codepen.io/HousewifeHacker/pen/jbNqXz/"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
-</summary></entry><entry><title>FlightBookr</title><link href="http://housewifehacker.com/flightbookr.html" rel="alternate"></link><updated>2014-10-26T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2014-10-26:flightbookr.html</id><summary type="html">&lt;ul class="simple"&gt;
+</content></entry><entry><title>FlightBookr</title><link href="http://housewifehacker.com/flightbookr.html" rel="alternate"></link><published>2014-10-26T00:00:00-03:00</published><updated>2014-10-26T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2014-10-26:/flightbookr.html</id><content type="html">&lt;ul class="simple"&gt;
 &lt;li&gt;Flask backend provides API to Backbone.js from a JSON file of flight information&lt;/li&gt;
 &lt;li&gt;Client-side form validations with Parsley.js&lt;/li&gt;
 &lt;li&gt;Marionette managed composite views and events&lt;/li&gt;
@@ -9,10 +20,16 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://flightbookr.herokuapp.com/"&gt;Live&lt;/a&gt;
 &lt;a class="reference external" href="http://www.github.com/housewifehacker/flightbookr/"&gt;Github&lt;/a&gt;&lt;/p&gt;
-</summary></entry><entry><title>Asteroids</title><link href="http://housewifehacker.com/asteroids.html" rel="alternate"></link><updated>2014-10-13T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2014-10-13:asteroids.html</id><summary type="html">&lt;p&gt;Client-side JavaScript game drawn on an HTML5 Canvas&lt;/p&gt;
+</content></entry><entry><title>Asteroids</title><link href="http://housewifehacker.com/asteroids.html" rel="alternate"></link><published>2014-10-13T00:00:00-03:00</published><updated>2014-10-13T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2014-10-13:/asteroids.html</id><content type="html">&lt;p&gt;Client-side JavaScript game drawn on an HTML5 Canvas&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://housewifehacker.com/asteroids/"&gt;Live&lt;/a&gt;
 &lt;a class="reference external" href="http://www.github.com/housewifehacker/asteroids/"&gt;Github&lt;/a&gt;&lt;/p&gt;
-</summary></entry><entry><title>PollTheWorld</title><link href="http://housewifehacker.com/polltheworld.html" rel="alternate"></link><updated>2014-10-12T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2014-10-12:polltheworld.html</id><summary type="html">&lt;ul class="simple"&gt;
+</content></entry><entry><title>PollTheWorld</title><link href="http://housewifehacker.com/polltheworld.html" rel="alternate"></link><published>2014-10-12T00:00:00-03:00</published><updated>2014-10-12T00:00:00-03:00</updated><author><name>Jessie Anderson</name></author><id>tag:housewifehacker.com,2014-10-12:/polltheworld.html</id><summary type="html">&lt;ul class="simple"&gt;
+&lt;li&gt;Create polls, vote, and view responses summary.&lt;/li&gt;
+&lt;li&gt;Heroku hosted Backbone.js application consuming RESTful Rails API&lt;/li&gt;
+&lt;li&gt;Custom user authentication system with hashed passwords, session token and guest login&lt;/li&gt;
+&lt;li&gt;Infinite scroll appends next page's Backbone collection on scroll off event&lt;/li&gt;
+&lt;li&gt;Extends Backbone's model parsing to include relations&lt;/li&gt;
+&lt;li&gt;Custom Backbone composite view …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;ul class="simple"&gt;
 &lt;li&gt;Create polls, vote, and view responses summary.&lt;/li&gt;
 &lt;li&gt;Heroku hosted Backbone.js application consuming RESTful Rails API&lt;/li&gt;
 &lt;li&gt;Custom user authentication system with hashed passwords, session token and guest login&lt;/li&gt;
@@ -23,4 +40,4 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.polltheworld.website/"&gt;Live&lt;/a&gt;
 &lt;a class="reference external" href="http://www.github.com/housewifehacker/polltheworld/"&gt;Github&lt;/a&gt;&lt;/p&gt;
-</summary></entry></feed>
+</content></entry></feed>
