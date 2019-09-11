@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Authentication Browser Storage Options</title>
+        <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
+        <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
+</head>
+
+<body id="index" class="home">
+<a href="http://github.com/housewifehacker">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
+        <header id="banner" class="body">
+                <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="http://housewifehacker.com/category/code.html">Code</a></li>
+                    <li><a href="http://housewifehacker.com/category/projects.html">Projects</a></li>
+                    <li><a href="http://housewifehacker.com/category/reading-list.html">Reading List</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://housewifehacker.com/authentication-browser-storage-options.html" rel="bookmark"
+           title="Permalink to Authentication Browser Storage Options">Authentication Browser Storage Options</a></h1>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-09-10T00:00:00-03:00">
+                Published: September 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
+        </address>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
+
+</footer><!-- /.post-info -->      <p>Before the invention of client side rendering and AJAX, there were web apps that required visiting multiple pages. To keep the auth data in the browser for navigating to other pages, cookies were invented. Even with single page apps, browser storage is important to allow a user to remain authenticated if they refresh the page and possibly if they use multiple tabs or windows (depending on implementation). The browser retains the data needed to verify who is using the web app and their access. The newer browser storage options are local storage and session storage, thanks to HTML5. The collective name for Session Storage and Local Storage is Web Storage. Regardless of if you choose to use a JWT (JSON Web Token) or not, you still have to decide where to put the auth data. Below are some areas to consider when comparing the options.</p>
+<blockquote>
+<ul class="simple">
+<li>Storage Capacity: This is unlikely to be the deciding factor for auth data, but web storage holds significantly more than cookies. The 4 Kilobytes of storage per cookie is plenty for effective auth.</li>
+<li>Browser limitations: Browsers limit the number of cookies being stored. The limit depends on the browser and version, but typical limits are 300 cookies in total and 20 cookies per domain. Web Storage allows requesting more storage. Browsers may prompt users to request a certain amount of storage, and the hard drive could be a limiting factor, depending on their device and what else they are doing on it at the same time.</li>
+<li>Browser support: According to current canIUse data, web storage is known to be supported by ~97% of global browser use. Nearly all of the remaining browser use is unknown. In my opinion,  we have reached a point to safely consider any of the storage options without concern of browser support.</li>
+<li>Network traffic: Cookies are attached to each request for your domain. Web storage only lives client side. With web storage, you would use the HTTP Authorization Header and the Bearer scheme to send the auth token. The difference in the size of your auth data with each request would depend on what you are storing.  If you have requests that don't need auth data, the cookies (all of the ones for your domain) would be sent regardless. Alternatively with web storage, the Authorization headers from your web storage could exclude data that is irrelevant for each request.</li>
+<li>Security: Security is a very complicated topic. All options have vulnerabilities and defenses to protect against &quot;sniffing&quot; (collecting data to read or use). Possible defenses include HTTPS, encrypted data that requires
+data from the server to decrypt, CSRF tokens, and setting cookie headers to HTTPOnly.</li>
+<li>Persistence: All options can be cleared by a user (or their software). Web storage does not expire. Cookies can optionally be given an expiration date. JWTs can also be given an expiration datei, which
+could then be used with web storage to give the data an expiration date. This is where sessionStorage and localStorage have different behavior. The sessionStorage is cleared when the session ends. Refreshing the browser does not end the session, but closing the tab does. The session is only available for one tab, so multi-tab use would require re-authenticating the user. The localStorage is persistant across multiple tabs, including after closing a tab.</li>
+</ul>
+</blockquote>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                            <li><a href="http://python.org">Python.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://twitter.com/housewifehacker">Follow Me On Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3721-0283', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+</html>
