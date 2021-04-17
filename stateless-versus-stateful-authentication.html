@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>housewife_hacker - Tags</title>
+        <title>Stateless versus Stateful Authentication</title>
         <link rel="stylesheet" href="http://housewifehacker.com/theme/css/main.css" />
         <link href="http://housewifehacker.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="housewife_hacker Atom Feed" />
 </head>
@@ -14,32 +14,38 @@
         <header id="banner" class="body">
                 <h1><a href="http://housewifehacker.com/">housewife_hacker </a></h1>
                 <nav><ul>
-                    <li><a href="http://housewifehacker.com/category/code.html">Code</a></li>
+                    <li class="active"><a href="http://housewifehacker.com/category/code.html">Code</a></li>
                     <li><a href="http://housewifehacker.com/category/projects.html">Projects</a></li>
                     <li><a href="http://housewifehacker.com/category/reading-list.html">Reading List</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-
 <section id="content" class="body">
-    <h1>Tags for housewife_hacker</h1>
-    <ul>
-        <li><a href="http://housewifehacker.com/tag/beginner.html">beginner</a> (5)</li>
-        <li><a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> (3)</li>
-        <li><a href="http://housewifehacker.com/tag/debugging.html">debugging</a> (1)</li>
-        <li><a href="http://housewifehacker.com/tag/dictionary.html">dictionary</a> (1)</li>
-        <li><a href="http://housewifehacker.com/tag/exception-handling.html">exception handling</a> (1)</li>
-        <li><a href="http://housewifehacker.com/tag/games.html">games</a> (2)</li>
-        <li><a href="http://housewifehacker.com/tag/intermediate.html">intermediate</a> (1)</li>
-        <li><a href="http://housewifehacker.com/tag/lists.html">lists</a> (2)</li>
-        <li><a href="http://housewifehacker.com/tag/math.html">math</a> (2)</li>
-        <li><a href="http://housewifehacker.com/tag/modules.html">modules</a> (3)</li>
-        <li><a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> (2)</li>
-        <li><a href="http://housewifehacker.com/tag/python.html">python</a> (9)</li>
-        <li><a href="http://housewifehacker.com/tag/string-formatting.html">string formatting</a> (2)</li>
-        <li><a href="http://housewifehacker.com/tag/strings.html">strings</a> (1)</li>
-    </ul>
-</section>
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://housewifehacker.com/stateless-versus-stateful-authentication.html" rel="bookmark"
+           title="Permalink to Stateless versus Stateful Authentication">Stateless versus Stateful Authentication</a></h1>
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="housewifehacker">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    </header>
 
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-09-16T00:00:00-03:00">
+                Published: September 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
+        </address>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
+
+</footer><!-- /.post-info -->      <p>Stateless is when operations are not dependent on state. For authentication, this means that nothing is dependent on earlier requests including logging in. There is no logging out on the server either. The server does not know or track what users or user sessions are logged in. JWTs (JSON Web Tokens), get a lot of attention for being stateless. This is a bit misleading though. JWTs can be used to make both authentication and authorization stateless</p>
+<p>about JWT for being stateless. They can be stateless, but they dont have to be. So why would someone want to implement stateless authentication? One reason is a myth for nearly all the world, the idea that you cannot scale to use multiple servers if you need to depend on your server to check the session state. This scaling problem is not a problem though, thanks to syncing and centralized databases. You can have multiple servers that use identical databases. The other reason for stateless is to reduce communicating with the server. The server is still involved with validating the user's login credentials, creating and sending the token, but the server's role once a user has that token is diminished. Instead of checking if that token is logged in, it just checks that it matches what it expects. Why do I care so much about the server knowing who is logged in? Take a look at the earlier blog post of cases that your authentication implementation could handle or ignore. I have used computers at libraries, hostels, cyber cafes, and schools. Maybe I am old fashioned, but the inability to log out an authorization token can be a problem</p>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

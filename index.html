@@ -22,7 +22,114 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://housewifehacker.com/authentication-browser-storage-options.html">Authentication Browser Storage Options</a></h1>
+                    <h1 class="entry-title"><a href="http://housewifehacker.com/python-mutability-and-side-effects.html">Python Mutability and Side Effects</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-04-21T00:00:00-04:00">
+                Published: April 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
+        </address>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
+<p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
+</footer><!-- /.post-info --><p>I am back in school, to finally get my Bachelor's degree. This started as a writing assignment on void functions for my Programming fundamentals class, but I couldn't let it stop there.</p>
+<p>If a Python function does not return a result, the output from a function is None and that function is a void function. Print is an example of a voidfunction. Although it adds text to the standard output, that printed value isn’t stored when assigned to a value:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="s1">&#39;r&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p>Most Python data types are immutable, meaning their value cannot be modified without changing the object reference.  See Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">official documentation</a>for more info on Python's built-in types.As a high level language, Python is taking care of our objects behind the scenes. We can continue to modify the same variable name, but the ID of the object changes when Python creates another object. This immutability has an effect of protecting a local value within afunction from modifying the value of a variable outside of a function. In the following example, x references an integer that is modified with math, causing x to be recreated with a different value and ID:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">2428003641936</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">2428003641968</span>
+</pre></div>
+<p>We can pass x as an argument that is modified within the function, without modifyingthe value of x outside of the function:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="o">...</span>   <span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="o">...</span>   <span class="k">return</span> <span class="n">y</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">2</span>
+</pre></div>
+<p>However, dictionaries and lists are mutable. Notice how the ID is the same after a modification:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605312</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605312</span>
+</pre></div>
+<p>This leads to a very interesting possibility of a void function with a side effect. Side effects make a change to something other than what it’s output is assigned to. The following shows the same mutability for a dictionary and then an example of a void function with a side effect of changing the dictionary:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605824</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jessie&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605824</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">set_no_name</span><span class="p">(</span><span class="n">myDict</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">):</span>
+<span class="o">...</span>         <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;stranger&#39;</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stranger</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_no_name</span><span class="p">(</span><span class="n">stranger</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stranger</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;stranger&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_no_name</span><span class="p">(</span><span class="n">jess</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
+</pre></div>
+<p>To add further complexity (to both our objects and understanding), the object types of lists, tuples, and dictionaries are container objects. The items within them that are mutable are stored by reference (to the IDs), not value. In the following example, a tuple is an immutable type containing a mutable list and an immutable integer. When we modify the list and the integer, neither the tuple ID nor the list ID is changed, but the list inside the tuple is changed and the integer is not changed.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428003641712</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">2428009991424</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">2428009991424</span>
+</pre></div>
+<p>The JavaScript community often uses “purity” to discuss side effects. A function with a side effect is impure, versus no side effects is called pure. Impure functions can be harder to test and harder to debug if the developer doesn’t realize there is a sideeffect. Functions with side effects are useful.Personally, I am fine with using side effects if it is a void function.A code comment of returning nothing would be useful for future me or someone else to understand the code, while a function with both a return and a side effect is a little messy. My confidence in this stance is boosted by how Python core uses this strategy for appending to a list:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+</pre></div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://housewifehacker.com/authentication-browser-storage-options.html" rel="bookmark"
+                           title="Permalink to Authentication Browser Storage Options">Authentication Browser Storage Options</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-09-10T00:00:00-03:00">
                 Published: September 2019
@@ -33,25 +140,10 @@
         </address>
 <p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 
-</footer><!-- /.post-info --><p>Before the invention of client side rendering and AJAX, there were web apps that required visiting multiple pages. To keep the auth data in the browser for navigating to other pages, cookies were invented. Even with single page apps, browser storage is important to allow a user to remain authenticated if they refresh the page and possibly if they use multiple tabs or windows (depending on implementation). The browser retains the data needed to verify who is using the web app and their access. The newer browser storage options are local storage and session storage, thanks to HTML5. The collective name for Session Storage and Local Storage is Web Storage. Regardless of if you choose to use a JWT (JSON Web Token) or not, you still have to decide where to put the auth data. Below are some areas to consider when comparing the options.</p>
-<blockquote>
-<ul class="simple">
-<li>Storage Capacity: This is unlikely to be the deciding factor for auth data, but web storage holds significantly more than cookies. The 4 Kilobytes of storage per cookie is plenty for effective auth.</li>
-<li>Browser limitations: Browsers limit the number of cookies being stored. The limit depends on the browser and version, but typical limits are 300 cookies in total and 20 cookies per domain. Web Storage allows requesting more storage. Browsers may prompt users to request a certain amount of storage, and the hard drive could be a limiting factor, depending on their device and what else they are doing on it at the same time.</li>
-<li>Browser support: According to current canIUse data, web storage is known to be supported by ~97% of global browser use. Nearly all of the remaining browser use is unknown. In my opinion,  we have reached a point to safely consider any of the storage options without concern of browser support.</li>
-<li>Network traffic: Cookies are attached to each request for your domain. Web storage only lives client side. With web storage, you would use the HTTP Authorization Header and the Bearer scheme to send the auth token. The difference in the size of your auth data with each request would depend on what you are storing.  If you have requests that don't need auth data, the cookies (all of the ones for your domain) would be sent regardless. Alternatively with web storage, the Authorization headers from your web storage could exclude data that is irrelevant for each request.</li>
-<li>Security: Security is a very complicated topic. All options have vulnerabilities and defenses to protect against &quot;sniffing&quot; (collecting data to read or use). Possible defenses include HTTPS, encrypted data that requires
-data from the server to decrypt, CSRF tokens, and setting cookie headers to HTTPOnly.</li>
-<li>Persistence: All options can be cleared by a user (or their software). Web storage does not expire. Cookies can optionally be given an expiration date. JWTs can also be given an expiration datei, which
-could then be used with web storage to give the data an expiration date. This is where sessionStorage and localStorage have different behavior. The sessionStorage is cleared when the session ends. Refreshing the browser does not end the session, but closing the tab does. The session is only available for one tab, so multi-tab use would require re-authenticating the user. The localStorage is persistant across multiple tabs, including after closing a tab.</li>
-</ul>
-</blockquote>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>Before the invention of client side rendering and AJAX, there were web apps that required visiting multiple pages. To keep the auth data in the browser for navigating to other pages, cookies were invented. Even with single page apps, browser storage is important to allow a user to remain authenticated …</p>
+                <a class="readmore" href="http://housewifehacker.com/authentication-browser-storage-options.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -180,28 +272,6 @@ could then be used with web storage to give the data an expiration date. This is
 <a class="reference external" href="http://www.github.com/housewifehacker/flightbookr/">Github</a></p>
 
                 <a class="readmore" href="http://housewifehacker.com/flightbookr.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://housewifehacker.com/pythons-dictionary-get.html" rel="bookmark"
-                           title="Permalink to Python's Dictionary Get">Python's Dictionary Get</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2014-10-16T00:00:00-03:00">
-                Published: October 2014
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
-        </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
-
-</footer><!-- /.post-info -->                <p>In a Python dictionary, one way to return the value for a specific key is a_dictionary[key]. Another way is to use the get method: a_dictionary.get(key). The difference is when the key is not in the dictionary. The bracket method returns an error, but the get method is …</p>
-                <a class="readmore" href="http://housewifehacker.com/pythons-dictionary-get.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

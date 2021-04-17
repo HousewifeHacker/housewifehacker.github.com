@@ -22,7 +22,114 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://housewifehacker.com/easy-anagram-dictionaries-practice.html">Easy Anagram Dictionaries Practice</a></h1>
+                    <h1 class="entry-title"><a href="http://housewifehacker.com/python-mutability-and-side-effects.html">Python Mutability and Side Effects</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-04-21T00:00:00-04:00">
+                Published: April 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
+        </address>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
+<p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
+</footer><!-- /.post-info --><p>I am back in school, to finally get my Bachelor's degree. This started as a writing assignment on void functions for my Programming fundamentals class, but I couldn't let it stop there.</p>
+<p>If a Python function does not return a result, the output from a function is None and that function is a void function. Print is an example of a voidfunction. Although it adds text to the standard output, that printed value isn’t stored when assigned to a value:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="s1">&#39;r&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p>Most Python data types are immutable, meaning their value cannot be modified without changing the object reference.  See Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">official documentation</a>for more info on Python's built-in types.As a high level language, Python is taking care of our objects behind the scenes. We can continue to modify the same variable name, but the ID of the object changes when Python creates another object. This immutability has an effect of protecting a local value within afunction from modifying the value of a variable outside of a function. In the following example, x references an integer that is modified with math, causing x to be recreated with a different value and ID:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">2428003641936</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">2428003641968</span>
+</pre></div>
+<p>We can pass x as an argument that is modified within the function, without modifyingthe value of x outside of the function:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="o">...</span>   <span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="o">...</span>   <span class="k">return</span> <span class="n">y</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">2</span>
+</pre></div>
+<p>However, dictionaries and lists are mutable. Notice how the ID is the same after a modification:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605312</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605312</span>
+</pre></div>
+<p>This leads to a very interesting possibility of a void function with a side effect. Side effects make a change to something other than what it’s output is assigned to. The following shows the same mutability for a dictionary and then an example of a void function with a side effect of changing the dictionary:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605824</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jessie&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605824</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">set_no_name</span><span class="p">(</span><span class="n">myDict</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">):</span>
+<span class="o">...</span>         <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;stranger&#39;</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stranger</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_no_name</span><span class="p">(</span><span class="n">stranger</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stranger</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;stranger&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_no_name</span><span class="p">(</span><span class="n">jess</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
+</pre></div>
+<p>To add further complexity (to both our objects and understanding), the object types of lists, tuples, and dictionaries are container objects. The items within them that are mutable are stored by reference (to the IDs), not value. In the following example, a tuple is an immutable type containing a mutable list and an immutable integer. When we modify the list and the integer, neither the tuple ID nor the list ID is changed, but the list inside the tuple is changed and the integer is not changed.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428003641712</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">2428009991424</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">2428009991424</span>
+</pre></div>
+<p>The JavaScript community often uses “purity” to discuss side effects. A function with a side effect is impure, versus no side effects is called pure. Impure functions can be harder to test and harder to debug if the developer doesn’t realize there is a sideeffect. Functions with side effects are useful.Personally, I am fine with using side effects if it is a void function.A code comment of returning nothing would be useful for future me or someone else to understand the code, while a function with both a return and a side effect is a little messy. My confidence in this stance is boosted by how Python core uses this strategy for appending to a list:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+</pre></div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://housewifehacker.com/easy-anagram-dictionaries-practice.html" rel="bookmark"
+                           title="Permalink to Easy Anagram Dictionaries Practice">Easy Anagram Dictionaries Practice</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2012-05-15T00:00:00-04:00">
                 Published: May 2012
@@ -33,77 +140,10 @@
         </address>
 <p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/dictionary.html">dictionary</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/mutable-and-immutable.html">mutable and immutable</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
-</footer><!-- /.post-info --><p>I do not use dictionaries very often. Friday, I was without internet all day, so I took the opportunity to play with dir() and help() to discover some dictionary properties. My short-lived obsession with Draw Something on the iPhone has gotten me interested in anagrams (kicked the habit by reading programming books). I believe using dictionaries is the fastest and most accurate way to determine if two words are anagrams of each other, at least without importing any other modules.</p>
-<p>A dictionary is an unordered set of key: value pairs. Keys must be an immutable type. Values can be anything. Being unordered causes some interesting properties for working with dictionaries, different from any other python data structure. Instead of being indexed by numbers, dictionaries are indexed by keys. Because they are indexed by keys, each key is unique within it's dictionary. If two dictionaries with the same keys are added to each other, the values of the same data type combine. This is convenient for our anagram activity. But first, some dictionary review.</p>
-<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">=</span> <span class="p">{}</span>        <span class="c1"># creates an empty dictionary</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span> <span class="p">)</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;dict&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jessie&#39;</span>        <span class="c1"># creating a key:value pair</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>        <span class="c1"># another key:value pair</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span>
-<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>        <span class="c1"># another way to create dict</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span> <span class="p">(</span><span class="n">sample_dict2</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;dict&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict2</span>
-<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span> <span class="o">+</span> <span class="n">sample_dict2</span>        <span class="c1"># cannot add dictionaries, only values</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;console&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s1">&#39;dict&#39;</span> <span class="ow">and</span> <span class="s1">&#39;dict&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">sample_dict2</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>        <span class="c1"># adds values</span>
-<span class="mi">46</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="p">)</span>        <span class="c1"># keys and values are returned as lists</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;list&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>        <span class="c1"># gets the value at a specific key</span>
-<span class="mi">23</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">))</span>         <span class="c1"># value maintains data type in dictionary</span>
-<span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>        <span class="c1"># D.has_key() returns boolean</span>
-<span class="bp">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Children&#39;</span><span class="p">:</span> <span class="s1">&#39;Graham&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sample_dict</span><span class="p">)</span>        <span class="c1"># update keys and values</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict</span>
-<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sample_dict3</span>        <span class="c1"># Children field is added as a key:value pair</span>
-<span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Children&#39;</span><span class="p">:</span> <span class="s1">&#39;Graham&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jessie&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>        <span class="c1"># different order is equal</span>
-<span class="bp">True</span>
-</pre></div>
-<p>How do we know if two words are anagrams? Consider the anagrams odor and door. We could say that they are reshuffled strings. Each word uses the same letters, but in a different order: 2 o's, 1 r, and 1 d. My simple program creates empty dictionaries for the two words being compared, stores the letters as keys, and adds to the value for each occurrence of the same letter, then checks that the dictionaries are equivalent. I have not included exception handling and I made the design decision to count white space as part of the anagram such that 'abc def' is not an anagram of 'fdeabc,' but is an anagram of 'abc fed.'</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dict</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">count</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">word1</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the first word? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">word2</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;What is the second? </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">count1</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">count2</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">count1</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word1</span><span class="p">,</span> <span class="n">count1</span><span class="p">)</span>
-    <span class="n">count2</span> <span class="o">=</span> <span class="n">get_dict</span><span class="p">(</span><span class="n">word2</span><span class="p">,</span> <span class="n">count2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">count1</span> <span class="o">==</span> <span class="n">count2</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Yes, those are anagrams!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;No, you&#39;ve failed </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>I do not use dictionaries very often. Friday, I was without internet all day, so I took the opportunity to play with dir() and help() to discover some dictionary properties. My short-lived obsession with Draw Something on the iPhone has gotten me interested in anagrams (kicked the habit by reading …</p>
+                <a class="readmore" href="http://housewifehacker.com/easy-anagram-dictionaries-practice.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

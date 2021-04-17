@@ -22,7 +22,114 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://housewifehacker.com/intermediate-guess-number-python-game.html">Intermediate Guess Number Python Game</a></h1>
+                    <h1 class="entry-title"><a href="http://housewifehacker.com/python-mutability-and-side-effects.html">Python Mutability and Side Effects</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-04-21T00:00:00-04:00">
+                Published: April 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
+        </address>
+<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
+<p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> </p>
+</footer><!-- /.post-info --><p>I am back in school, to finally get my Bachelor's degree. This started as a writing assignment on void functions for my Programming fundamentals class, but I couldn't let it stop there.</p>
+<p>If a Python function does not return a result, the output from a function is None and that function is a void function. Print is an example of a voidfunction. Although it adds text to the standard output, that printed value isn’t stored when assigned to a value:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="s1">&#39;r&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p>Most Python data types are immutable, meaning their value cannot be modified without changing the object reference.  See Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">official documentation</a>for more info on Python's built-in types.As a high level language, Python is taking care of our objects behind the scenes. We can continue to modify the same variable name, but the ID of the object changes when Python creates another object. This immutability has an effect of protecting a local value within afunction from modifying the value of a variable outside of a function. In the following example, x references an integer that is modified with math, causing x to be recreated with a different value and ID:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">2428003641936</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">2428003641968</span>
+</pre></div>
+<p>We can pass x as an argument that is modified within the function, without modifyingthe value of x outside of the function:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="o">...</span>   <span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="o">...</span>   <span class="k">return</span> <span class="n">y</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">2</span>
+</pre></div>
+<p>However, dictionaries and lists are mutable. Notice how the ID is the same after a modification:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605312</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605312</span>
+</pre></div>
+<p>This leads to a very interesting possibility of a void function with a side effect. Side effects make a change to something other than what it’s output is assigned to. The following shows the same mutability for a dictionary and then an example of a void function with a side effect of changing the dictionary:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605824</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Jessie&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428004605824</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">set_no_name</span><span class="p">(</span><span class="n">myDict</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">myDict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">):</span>
+<span class="o">...</span>         <span class="n">myDict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;stranger&#39;</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stranger</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_no_name</span><span class="p">(</span><span class="n">stranger</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stranger</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;stranger&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">set_no_name</span><span class="p">(</span><span class="n">jess</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
+</pre></div>
+<p>To add further complexity (to both our objects and understanding), the object types of lists, tuples, and dictionaries are container objects. The items within them that are mutable are stored by reference (to the IDs), not value. In the following example, a tuple is an immutable type containing a mutable list and an immutable integer. When we modify the list and the integer, neither the tuple ID nor the list ID is changed, but the list inside the tuple is changed and the integer is not changed.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428003641712</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">2428009991424</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">+=</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span>
+<span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">2428009991424</span>
+</pre></div>
+<p>The JavaScript community often uses “purity” to discuss side effects. A function with a side effect is impure, versus no side effects is called pure. Impure functions can be harder to test and harder to debug if the developer doesn’t realize there is a sideeffect. Functions with side effects are useful.Personally, I am fine with using side effects if it is a void function.A code comment of returning nothing would be useful for future me or someone else to understand the code, while a function with both a return and a side effect is a little messy. My confidence in this stance is boosted by how Python core uses this strategy for appending to a list:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="mi">2428009990336</span>
+</pre></div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://housewifehacker.com/intermediate-guess-number-python-game.html" rel="bookmark"
+                           title="Permalink to Intermediate Guess Number Python Game">Intermediate Guess Number Python Game</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2012-06-02T00:00:00-04:00">
                 Published: June 2012
@@ -33,139 +140,10 @@
         </address>
 <p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
 <p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/intermediate.html">intermediate</a> <a href="http://housewifehacker.com/tag/games.html">games</a> <a href="http://housewifehacker.com/tag/string-formatting.html">string formatting</a> <a href="http://housewifehacker.com/tag/exception-handling.html">exception handling</a> <a href="http://housewifehacker.com/tag/debugging.html">debugging</a> </p>
-</footer><!-- /.post-info --><p>In my first month of learning python, I wrote a simple guess the number game. It did not include exception handling, was not pep8 compliant, and was organized somewhat poorly. It also needed updating because it used what I like to call &quot;C Print Formatting,&quot; which used to be correct in python but is now being replaced. <a class="reference external" href="http://www.python.org/dev/peps/pep-3101/">http://www.python.org/dev/peps/pep-3101/</a> discusses why. I decided to include a little of my coding process in this post as a way to pre-empt debugging.</p>
-<p>The following code example was my first iteration. I knew that the user would be making multiple guesses, so my prompt for guess had to be a separate function called multiple times. I also included exception handling with my prompt so that the guess had to be a number within range and not a letter. I didn't know yet if generating the random integer would be complicated, so I hard coded a value for the correct answer and had the program print when completed, so I knew if the program reached the final step. In this version, you get one guess and the program doesn't know if you are wrong or right.</p>
-<div class="highlight"><pre><span></span><span class="n">minm</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">maxm</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">max_guesses</span> <span class="o">=</span> <span class="mi">6</span>
-
-<span class="k">def</span> <span class="nf">randomize</span><span class="p">():</span>
-    <span class="k">return</span> <span class="mi">4</span>
-
-<span class="k">def</span> <span class="nf">prompt_for_guess</span><span class="p">():</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Guess a number between {:d} and {:d} </span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span><span class="p">)))</span>
-        <span class="k">if</span> <span class="n">guess</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">guess</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Must be a number.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m thinking of a number. I&#39;ll give you {:d} guesses&quot;</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_guesses</span><span class="p">))</span>
-    <span class="n">guess</span> <span class="o">=</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">randomize</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The answer was {:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-<p>Running the program with inputs of a letter, a number out of range, and a number within range verified that my exception handling worked. At this time, I imported random in my terminal and read the directory and help to review use of randint. Randint includes the last boundary, unlike the built in python range. Because it was only one line of code, I decided it did not need its own function. Also because I only needed to use it one time. My next attempt looked like this:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-
-<span class="c1"># configs</span>
-<span class="n">minm</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">maxm</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">max_guesses</span> <span class="o">=</span> <span class="mi">6</span>
-
-
-<span class="n">guesses_taken</span> <span class="o">=</span> <span class="mi">1</span>
-
-
-<span class="k">def</span> <span class="nf">prompt_for_guess</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Asks for a guess and repeats if input is not a number in range&quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Guess a number between {:d} and {:d}. </span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span><span class="p">)))</span>
-        <span class="k">if</span> <span class="n">guess</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">guess</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Must be a number.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m thinking of a number. I&#39;ll give you {:d} guesses&quot;</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_guesses</span><span class="p">))</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">guesses_taken</span> <span class="o">&lt;=</span> <span class="n">max_guesses</span><span class="p">:</span>
-        <span class="n">guess</span> <span class="o">=</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">answer</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;That&#39;s it! You win!&quot;</span><span class="p">)</span>
-            <span class="k">break</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">answer</span> <span class="o">&gt;</span> <span class="n">guess</span><span class="p">:</span>
-                <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Your guess is too {:s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reason</span><span class="p">))</span>
-        <span class="n">guesses_taken</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The answer was {:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-        <span class="n">main</span><span class="p">()</span>
-</pre></div>
-<p>But this had some errors. First, my guesses taken cannot be assigned outside my main function without making it a global variable. Unlike my minm, maxm, and max guesses, I want to edit the value of guesses taken. My second error was using an if statement instead of a while loop for guesses taken less than max guesses. I want my loop to continue until the user exceeds the number of allowed guesses or they get the answer right. My third mistake was my final print statement. It was useful for my initial attempt to write the program, but now I only want to reveal the answer if the user loses.</p>
-<p>Now The Final Code</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-
-<span class="c1"># configs</span>
-<span class="n">minm</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">maxm</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">max_guesses</span> <span class="o">=</span> <span class="mi">6</span>
-
-
-<span class="k">def</span> <span class="nf">prompt_for_guess</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Asks for a guess and repeats if input is not a number in range&quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Guess a number between {:d} and {:d}. </span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span><span class="p">)))</span>
-        <span class="k">if</span> <span class="n">guess</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">guess</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Must be a number.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m thinking of a number. I&#39;ll give you {:d} guesses&quot;</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_guesses</span><span class="p">))</span>
-    <span class="n">answer</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">minm</span><span class="p">,</span> <span class="n">maxm</span><span class="p">)</span>
-    <span class="n">guesses_taken</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">guesses_taken</span> <span class="o">&lt;=</span> <span class="n">max_guesses</span><span class="p">:</span>
-        <span class="n">guess</span> <span class="o">=</span> <span class="n">prompt_for_guess</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">answer</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;That&#39;s it! You win!&quot;</span><span class="p">)</span>
-            <span class="k">break</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">answer</span> <span class="o">&gt;</span> <span class="n">guess</span><span class="p">:</span>
-                <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">reason</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
-            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Your guess is too {:s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reason</span><span class="p">))</span>
-        <span class="n">guesses_taken</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">guesses_taken</span> <span class="o">&gt;</span> <span class="n">max_guesses</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The answer was {:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-        <span class="n">main</span><span class="p">()</span>
-</pre></div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <p>In my first month of learning python, I wrote a simple guess the number game. It did not include exception handling, was not pep8 compliant, and was organized somewhat poorly. It also needed updating because it used what I like to call &quot;C Print Formatting,&quot; which used to be correct …</p>
+                <a class="readmore" href="http://housewifehacker.com/intermediate-guess-number-python-game.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -285,28 +263,6 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x …</span></pre></div>
                 <a class="readmore" href="http://housewifehacker.com/map-function-in-python.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://housewifehacker.com/indexes-strings-and-lists.html" rel="bookmark"
-                           title="Permalink to Indexes, Strings, and Lists">Indexes, Strings, and Lists</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2010-10-18T00:00:00-03:00">
-                Published: October 2010
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://housewifehacker.com/author/jessie-anderson.html">Jessie Anderson</a>
-        </address>
-<p>In <a href="http://housewifehacker.com/category/code.html">Code</a>.</p>
-<p>tags: <a href="http://housewifehacker.com/tag/python.html">python</a> <a href="http://housewifehacker.com/tag/beginner.html">beginner</a> <a href="http://housewifehacker.com/tag/data-structures.html">data structures</a> <a href="http://housewifehacker.com/tag/lists.html">lists</a> <a href="http://housewifehacker.com/tag/strings.html">strings</a> </p>
-</footer><!-- /.post-info -->                <p>A Python string's properties can be best understood by using sentences and words, although numbers can also be stored as strings. Be careful not to name a string as 'str' or 'string', because these are built in functions in Python. Let's play with some basic functions you can do to …</p>
-                <a class="readmore" href="http://housewifehacker.com/indexes-strings-and-lists.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
