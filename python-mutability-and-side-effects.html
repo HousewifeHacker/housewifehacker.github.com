@@ -95,7 +95,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">jess</span>
 <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jess&#39;</span><span class="p">}</span>
 </pre></div>
-<p>To add further complexity (to both our objects and understanding), the object types of lists, tuples, and dictionaries are container objects. The items within them that are mutable are stored by reference (to the IDs), not value. In the following example, a tuple is an immutable type containing a mutable list and an immutable integer. When we modify the list and the integer, neither the tuple ID nor the list ID is changed, but the list inside the tuple is changed and the integer is not changed.</p>
+<p>To add further complexity (to both our objects and understanding), the object types of lists, tuples, and dictionaries are container objects. The items within them are stored by reference (to the IDs), not value. In the following example, a tuple is an immutable type containing a mutable list and an immutable integer. When we modify the list and the integer, the value of the list inside the tuple is changed and the value of the integer is not changed.The IDs of both the mutablle list and the immutable integer in the tuple are unchanged.</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
@@ -111,6 +111,10 @@
 <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="mi">2428009991424</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="mi">2428009990336</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="mi">2428003641712</span>
 </pre></div>
 <p>The JavaScript community often uses “purity” to discuss side effects. A function with a side effect is impure, versus no side effects is called pure. Impure functions can be harder to test and harder to debug if the developer doesn’t realize there is a sideeffect. Functions with side effects are useful.Personally, I am fine with using side effects if it is a void function.A code comment of returning nothing would be useful for future me or someone else to understand the code, while a function with both a return and a side effect is a little messy. My confidence in this stance is boosted by how Python core uses this strategy for appending to a list:</p>
 <div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>

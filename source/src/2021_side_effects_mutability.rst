@@ -100,11 +100,12 @@ example of a void function with a side effect of changing the dictionary:
 
 To add further complexity (to both our objects and understanding), the object \
 types of lists, tuples, and dictionaries are container objects. \
-The items within them that are mutable are stored by reference (to the IDs), not \
+The items within them are stored by reference (to the IDs), not \
 value. In the following example, a tuple is an immutable type containing a \
 mutable list and an immutable integer. When we \
-modify the list and the integer, neither the tuple ID nor the list ID is changed, but the \
-list inside the tuple is changed and the integer is not changed.
+modify the list and the integer, the \
+value of the list inside the tuple is changed and the value of the integer is not changed.\
+The IDs of both the mutablle list and the immutable integer in the tuple are unchanged.
 
 .. code-block:: python
 
@@ -123,6 +124,10 @@ list inside the tuple is changed and the integer is not changed.
     ([1, 2, 3, 4], 3)
     >>> id(t)
     2428009991424
+    >>> id(t[0])
+    2428009990336
+    >>> id(t[1])
+    2428003641712
 
 The JavaScript community often uses “purity” to discuss side effects. A \
 function with a side effect is impure, versus no side effects is called \
