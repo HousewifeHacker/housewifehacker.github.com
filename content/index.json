@@ -10,5 +10,11 @@
     "published": true,
     "created_at": "2026-02-28T15:38:58.784998",
     "modified_at": "2026-02-28T17:08:29.495593"
+  },
+  "a-tiny-llm-harness": {
+    "title": "A Tiny LLM Harness",
+    "published": true,
+    "created_at": "2026-03-07T09:03:53.820391",
+    "modified_at": "2026-03-07T12:46:31.023301"
   }
 }
